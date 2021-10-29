@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FB3DBModelStoreContainer" CdmEntityContainer="FB3DBEntities">
+    <EntitySetMapping Name="FB3_EMP_DATA">
+      <EntityTypeMapping TypeName="FB3DBModel.FB3_EMP_DATA">
+        <MappingFragment StoreEntitySet="FB3_EMP_DATA">
+          <ScalarProperty Name="EMP_ID" ColumnName="EMP_ID" />
+          <ScalarProperty Name="EMP_STATUS" ColumnName="EMP_STATUS" />
+          <ScalarProperty Name="JPN_CD" ColumnName="JPN_CD" />
+          <ScalarProperty Name="EMP_NAME" ColumnName="EMP_NAME" />
+          <ScalarProperty Name="EMP_ENGNAME" ColumnName="EMP_ENGNAME" />
+          <ScalarProperty Name="EMP_CHG_CD" ColumnName="EMP_CHG_CD" />
+          <ScalarProperty Name="DEPT_NO" ColumnName="DEPT_NO" />
+          <ScalarProperty Name="DIRECT_HEAD_EMP_ID" ColumnName="DIRECT_HEAD_EMP_ID" />
+          <ScalarProperty Name="PJOB_CD" ColumnName="PJOB_CD" />
+          <ScalarProperty Name="PJOB_DESC" ColumnName="PJOB_DESC" />
+          <ScalarProperty Name="PLANT_CD" ColumnName="PLANT_CD" />
+          <ScalarProperty Name="COMPANY_EMAIL" ColumnName="COMPANY_EMAIL" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VW_H_DEPT_DATA">
+      <EntityTypeMapping TypeName="FB3DBModel.VW_H_DEPT_DATA">
+        <MappingFragment StoreEntitySet="VW_H_DEPT_DATA">
+          <ScalarProperty Name="DEPT_NO" ColumnName="DEPT_NO" />
+          <ScalarProperty Name="DEPT_NAME" ColumnName="DEPT_NAME" />
+          <ScalarProperty Name="DEPT_SNAME" ColumnName="DEPT_SNAME" />
+          <ScalarProperty Name="DEPT_LEVEL" ColumnName="DEPT_LEVEL" />
+          <ScalarProperty Name="HEAD_EMP_ID" ColumnName="HEAD_EMP_ID" />
+          <ScalarProperty Name="HEAD_EMP_NAME" ColumnName="HEAD_EMP_NAME" />
+          <ScalarProperty Name="UP_DEPT_NO" ColumnName="UP_DEPT_NO" />
+          <ScalarProperty Name="UP_DEPT_NAME" ColumnName="UP_DEPT_NAME" />
+          <ScalarProperty Name="ACC_CD" ColumnName="ACC_CD" />
+          <ScalarProperty Name="ACC_DEPT_NO" ColumnName="ACC_DEPT_NO" />
+          <ScalarProperty Name="ACC_DEPT_NAME" ColumnName="ACC_DEPT_NAME" />
+          <ScalarProperty Name="CAR_TYPE" ColumnName="CAR_TYPE" />
+          <ScalarProperty Name="COST_DEPT_NO" ColumnName="COST_DEPT_NO" />
+          <ScalarProperty Name="BUDGET_DEPT_NO" ColumnName="BUDGET_DEPT_NO" />
+          <ScalarProperty Name="DEPT_FULL_NAME" ColumnName="DEPT_FULL_NAME" />
+          <ScalarProperty Name="DIV_DEPT_FULL_NAME" ColumnName="DIV_DEPT_FULL_NAME" />
+          <ScalarProperty Name="DEPT_NO_20" ColumnName="DEPT_NO_20" />
+          <ScalarProperty Name="DEPT_NAME_20" ColumnName="DEPT_NAME_20" />
+          <ScalarProperty Name="DEPT_NO_30" ColumnName="DEPT_NO_30" />
+          <ScalarProperty Name="DEPT_NAME_30" ColumnName="DEPT_NAME_30" />
+          <ScalarProperty Name="DEPT_NO_40" ColumnName="DEPT_NO_40" />
+          <ScalarProperty Name="DEPT_NAME_40" ColumnName="DEPT_NAME_40" />
+          <ScalarProperty Name="DEPT_NO_50" ColumnName="DEPT_NO_50" />
+          <ScalarProperty Name="DEPT_NAME_50" ColumnName="DEPT_NAME_50" />
+          <ScalarProperty Name="DEPT_NO_60" ColumnName="DEPT_NO_60" />
+          <ScalarProperty Name="DEPT_NAME_60" ColumnName="DEPT_NAME_60" />
+          <ScalarProperty Name="DEPT_NO_70" ColumnName="DEPT_NO_70" />
+          <ScalarProperty Name="DEPT_NAME_70" ColumnName="DEPT_NAME_70" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VW_H_DEPT_LEVEL">
+      <EntityTypeMapping TypeName="FB3DBModel.VW_H_DEPT_LEVEL">
+        <MappingFragment StoreEntitySet="VW_H_DEPT_LEVEL">
+          <ScalarProperty Name="DEPT_LEVEL" ColumnName="DEPT_LEVEL" />
+          <ScalarProperty Name="DEPT_LEVEL_DESC" ColumnName="DEPT_LEVEL_DESC" />
+          <ScalarProperty Name="LEVEL_TYPE" ColumnName="LEVEL_TYPE" />
+          <ScalarProperty Name="IS_VALID" ColumnName="IS_VALID" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VW_H_EMP_DATA">
+      <EntityTypeMapping TypeName="FB3DBModel.VW_H_EMP_DATA">
+        <MappingFragment StoreEntitySet="VW_H_EMP_DATA">
+          <ScalarProperty Name="EMP_ID" ColumnName="EMP_ID" />
+          <ScalarProperty Name="EMP_NAME" ColumnName="EMP_NAME" />
+          <ScalarProperty Name="EMP_ENGNAME" ColumnName="EMP_ENGNAME" />
+          <ScalarProperty Name="EMP_STATUS" ColumnName="EMP_STATUS" />
+          <ScalarProperty Name="EMP_STATUS_DESC" ColumnName="EMP_STATUS_DESC" />
+          <ScalarProperty Name="EMP_CHG_CD" ColumnName="EMP_CHG_CD" />
+          <ScalarProperty Name="EMP_CHG_DESC" ColumnName="EMP_CHG_DESC" />
+          <ScalarProperty Name="WORK_YEARS" ColumnName="WORK_YEARS" />
+          <ScalarProperty Name="WORK_DAYS" ColumnName="WORK_DAYS" />
+          <ScalarProperty Name="SERVICE_YEARS" ColumnName="SERVICE_YEARS" />
+          <ScalarProperty Name="SERVICE_DAYS" ColumnName="SERVICE_DAYS" />
+          <ScalarProperty Name="AGE" ColumnName="AGE" />
+          <ScalarProperty Name="RECENT_LEVEL_WORK_DAYS" ColumnName="RECENT_LEVEL_WORK_DAYS" />
+          <ScalarProperty Name="RECENT_PJOB_WORK_DAYS" ColumnName="RECENT_PJOB_WORK_DAYS" />
+          <ScalarProperty Name="RECENT_DEPT_WORK_DAYS" ColumnName="RECENT_DEPT_WORK_DAYS" />
+          <ScalarProperty Name="RECENT_DIV_WORK_DAYS" ColumnName="RECENT_DIV_WORK_DAYS" />
+          <ScalarProperty Name="STUDENT_WORK_DAYS" ColumnName="STUDENT_WORK_DAYS" />
+          <ScalarProperty Name="K_WORK_DAYS" ColumnName="K_WORK_DAYS" />
+          <ScalarProperty Name="T_WORK_DAYS" ColumnName="T_WORK_DAYS" />
+          <ScalarProperty Name="WS_CD" ColumnName="WS_CD" />
+          <ScalarProperty Name="WS_DESC" ColumnName="WS_DESC" />
+          <ScalarProperty Name="COMPANY_CD" ColumnName="COMPANY_CD" />
+          <ScalarProperty Name="COMPANY_NAME" ColumnName="COMPANY_NAME" />
+          <ScalarProperty Name="PLANT_CD" ColumnName="PLANT_CD" />
+          <ScalarProperty Name="PLANT_NAME" ColumnName="PLANT_NAME" />
+          <ScalarProperty Name="DEPT_NO" ColumnName="DEPT_NO" />
+          <ScalarProperty Name="DEPT_NAME" ColumnName="DEPT_NAME" />
+          <ScalarProperty Name="DEPT_FULL_NAME" ColumnName="DEPT_FULL_NAME" />
+          <ScalarProperty Name="DIV_DEPT_FULL_NAME" ColumnName="DIV_DEPT_FULL_NAME" />
+          <ScalarProperty Name="DEPT_NO_20" ColumnName="DEPT_NO_20" />
+          <ScalarProperty Name="DEPT_NAME_20" ColumnName="DEPT_NAME_20" />
+          <ScalarProperty Name="DEPT_NO_30" ColumnName="DEPT_NO_30" />
+          <ScalarProperty Name="DEPT_NAME_30" ColumnName="DEPT_NAME_30" />
+          <ScalarProperty Name="DEPT_NO_40" ColumnName="DEPT_NO_40" />
+          <ScalarProperty Name="DEPT_NAME_40" ColumnName="DEPT_NAME_40" />
+          <ScalarProperty Name="DEPT_NO_50" ColumnName="DEPT_NO_50" />
+          <ScalarProperty Name="DEPT_NAME_50" ColumnName="DEPT_NAME_50" />
+          <ScalarProperty Name="DEPT_NO_60" ColumnName="DEPT_NO_60" />
+          <ScalarProperty Name="DEPT_NAME_60" ColumnName="DEPT_NAME_60" />
+          <ScalarProperty Name="DEPT_NO_70" ColumnName="DEPT_NO_70" />
+          <ScalarProperty Name="DEPT_NAME_70" ColumnName="DEPT_NAME_70" />
+          <ScalarProperty Name="EMP_CD" ColumnName="EMP_CD" />
+          <ScalarProperty Name="EMP_DESC" ColumnName="EMP_DESC" />
+          <ScalarProperty Name="LEVEL_CD" ColumnName="LEVEL_CD" />
+          <ScalarProperty Name="GRADE_CD" ColumnName="GRADE_CD" />
+          <ScalarProperty Name="PJOB_CD" ColumnName="PJOB_CD" />
+          <ScalarProperty Name="PJOB_DESC" ColumnName="PJOB_DESC" />
+          <ScalarProperty Name="WORK_SHIFT_CD" ColumnName="WORK_SHIFT_CD" />
+          <ScalarProperty Name="WORK_SHIFT_DESC" ColumnName="WORK_SHIFT_DESC" />
+          <ScalarProperty Name="CALENDAR_CD" ColumnName="CALENDAR_CD" />
+          <ScalarProperty Name="CALENDAR_DESC" ColumnName="CALENDAR_DESC" />
+          <ScalarProperty Name="WORK_CD" ColumnName="WORK_CD" />
+          <ScalarProperty Name="WORK_DESC" ColumnName="WORK_DESC" />
+          <ScalarProperty Name="ACC_CD" ColumnName="ACC_CD" />
+          <ScalarProperty Name="JOIN_DT" ColumnName="JOIN_DT" />
+          <ScalarProperty Name="EXAM_EXPIRE_DT" ColumnName="EXAM_EXPIRE_DT" />
+          <ScalarProperty Name="LEAVE_DT" ColumnName="LEAVE_DT" />
+          <ScalarProperty Name="LEAVE_REASON" ColumnName="LEAVE_REASON" />
+          <ScalarProperty Name="LEAVE_REASON_DESC" ColumnName="LEAVE_REASON_DESC" />
+          <ScalarProperty Name="PLAN_RETENTION_EDT" ColumnName="PLAN_RETENTION_EDT" />
+          <ScalarProperty Name="RETENTION_EDT" ColumnName="RETENTION_EDT" />
+          <ScalarProperty Name="TRANSFER_REASON" ColumnName="TRANSFER_REASON" />
+          <ScalarProperty Name="TRANSFER_REASON_DESC" ColumnName="TRANSFER_REASON_DESC" />
+          <ScalarProperty Name="TRANSFER_SDT" ColumnName="TRANSFER_SDT" />
+          <ScalarProperty Name="PLAN_TRANSFER_EDT" ColumnName="PLAN_TRANSFER_EDT" />
+          <ScalarProperty Name="TRANSFER_EDT" ColumnName="TRANSFER_EDT" />
+          <ScalarProperty Name="TRANSFER_NATION_CD" ColumnName="TRANSFER_NATION_CD" />
+          <ScalarProperty Name="TRANSFER_NATION_NAME" ColumnName="TRANSFER_NATION_NAME" />
+          <ScalarProperty Name="TRANSFER_COMPANY_CD" ColumnName="TRANSFER_COMPANY_CD" />
+          <ScalarProperty Name="TRANSFER_COMPANY_NAME" ColumnName="TRANSFER_COMPANY_NAME" />
+          <ScalarProperty Name="TRANSFER_DEPT" ColumnName="TRANSFER_DEPT" />
+          <ScalarProperty Name="IS_PAY_SUBSIST" ColumnName="IS_PAY_SUBSIST" />
+          <ScalarProperty Name="PLAN_DESPATCH_DT" ColumnName="PLAN_DESPATCH_DT" />
+          <ScalarProperty Name="BACK_SCHOOL_DT" ColumnName="BACK_SCHOOL_DT" />
+          <ScalarProperty Name="BACK_PLANT_DT" ColumnName="BACK_PLANT_DT" />
+          <ScalarProperty Name="BE_CONTRACT_DT" ColumnName="BE_CONTRACT_DT" />
+          <ScalarProperty Name="BE_DESPATCH_DT" ColumnName="BE_DESPATCH_DT" />
+          <ScalarProperty Name="KEEP_DESPATCH_DT" ColumnName="KEEP_DESPATCH_DT" />
+          <ScalarProperty Name="BE_EMP_DT" ColumnName="BE_EMP_DT" />
+          <ScalarProperty Name="RECENT_LEVEL_DT" ColumnName="RECENT_LEVEL_DT" />
+          <ScalarProperty Name="RECENT_PJOB_DT" ColumnName="RECENT_PJOB_DT" />
+          <ScalarProperty Name="RECENT_DEPT_DT" ColumnName="RECENT_DEPT_DT" />
+          <ScalarProperty Name="RECENT_DIV_DT" ColumnName="RECENT_DIV_DT" />
+          <ScalarProperty Name="IS_MASTER" ColumnName="IS_MASTER" />
+          <ScalarProperty Name="DIRECT_HEAD_EMP_ID" ColumnName="DIRECT_HEAD_EMP_ID" />
+          <ScalarProperty Name="IS_UPD_HEAD" ColumnName="IS_UPD_HEAD" />
+          <ScalarProperty Name="OVERTIME_CTL_CD" ColumnName="OVERTIME_CTL_CD" />
+          <ScalarProperty Name="HEALTH_YEAR" ColumnName="HEALTH_YEAR" />
+          <ScalarProperty Name="IS_DUTY_CHECK" ColumnName="IS_DUTY_CHECK" />
+          <ScalarProperty Name="UNION_PJOB_CD" ColumnName="UNION_PJOB_CD" />
+          <ScalarProperty Name="MODEL_YEAR" ColumnName="MODEL_YEAR" />
+          <ScalarProperty Name="HONOR_YEAR" ColumnName="HONOR_YEAR" />
+          <ScalarProperty Name="NATION_CD" ColumnName="NATION_CD" />
+          <ScalarProperty Name="JPN_CD" ColumnName="JPN_CD" />
+          <ScalarProperty Name="LICENSE_ID" ColumnName="LICENSE_ID" />
+          <ScalarProperty Name="PASSPORT_ID" ColumnName="PASSPORT_ID" />
+          <ScalarProperty Name="SEX_CD" ColumnName="SEX_CD" />
+          <ScalarProperty Name="BIRTH_DT" ColumnName="BIRTH_DT" />
+          <ScalarProperty Name="BLOOD_TYPE" ColumnName="BLOOD_TYPE" />
+          <ScalarProperty Name="HEIGHT" ColumnName="HEIGHT" />
+          <ScalarProperty Name="WEIGHT" ColumnName="WEIGHT" />
+          <ScalarProperty Name="BIRTHPLACE" ColumnName="BIRTHPLACE" />
+          <ScalarProperty Name="ARMY_CD" ColumnName="ARMY_CD" />
+          <ScalarProperty Name="SALARY_ACCOUNT_BANK" ColumnName="SALARY_ACCOUNT_BANK" />
+          <ScalarProperty Name="SALARY_ACCOUNT_BRANCH" ColumnName="SALARY_ACCOUNT_BRANCH" />
+          <ScalarProperty Name="SALARY_ACCOUNT_NO" ColumnName="SALARY_ACCOUNT_NO" />
+          <ScalarProperty Name="RELATIVES" ColumnName="RELATIVES" />
+          <ScalarProperty Name="INCOME_CD" ColumnName="INCOME_CD" />
+          <ScalarProperty Name="URGENT_CONTACT_NAME" ColumnName="URGENT_CONTACT_NAME" />
+          <ScalarProperty Name="URGENT_CONTACT_RELATION" ColumnName="URGENT_CONTACT_RELATION" />
+          <ScalarProperty Name="URGENT_CONTACT_TEL" ColumnName="URGENT_CONTACT_TEL" />
+          <ScalarProperty Name="REGISTER_ZIP_CD" ColumnName="REGISTER_ZIP_CD" />
+          <ScalarProperty Name="REGISTER_COUNTY" ColumnName="REGISTER_COUNTY" />
+          <ScalarProperty Name="REGISTER_REGION" ColumnName="REGISTER_REGION" />
+          <ScalarProperty Name="REGISTER_ADDR" ColumnName="REGISTER_ADDR" />
+          <ScalarProperty Name="REGISTER_TEL" ColumnName="REGISTER_TEL" />
+          <ScalarProperty Name="CONTACT_ZIP_CD" ColumnName="CONTACT_ZIP_CD" />
+          <ScalarProperty Name="CONTACT_COUNTY" ColumnName="CONTACT_COUNTY" />
+          <ScalarProperty Name="CONTACT_REGION" ColumnName="CONTACT_REGION" />
+          <ScalarProperty Name="CONTACT_ADDR" ColumnName="CONTACT_ADDR" />
+          <ScalarProperty Name="CONTACT_TEL" ColumnName="CONTACT_TEL" />
+          <ScalarProperty Name="MOBILE_TEL_1" ColumnName="MOBILE_TEL_1" />
+          <ScalarProperty Name="MOBILE_TEL_2" ColumnName="MOBILE_TEL_2" />
+          <ScalarProperty Name="COMPANY_EMAIL" ColumnName="COMPANY_EMAIL" />
+          <ScalarProperty Name="PERSONAL_EMAIL" ColumnName="PERSONAL_EMAIL" />
+          <ScalarProperty Name="SALARY_EMAIL" ColumnName="SALARY_EMAIL" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="EDUCATION_CD" ColumnName="EDUCATION_CD" />
+          <ScalarProperty Name="SCHOOL_NAME" ColumnName="SCHOOL_NAME" />
+          <ScalarProperty Name="DEPARTMENT_NAME" ColumnName="DEPARTMENT_NAME" />
+          <ScalarProperty Name="SALARY_EDUCATION_CD" ColumnName="SALARY_EDUCATION_CD" />
+          <ScalarProperty Name="SALARY_GRADUATION_YEAR" ColumnName="SALARY_GRADUATION_YEAR" />
+          <ScalarProperty Name="APPROVE_WORK_YEARS" ColumnName="APPROVE_WORK_YEARS" />
+          <ScalarProperty Name="SALARY_EMAIL_CD" ColumnName="SALARY_EMAIL_CD" />
+          <ScalarProperty Name="EMP_NAME2" ColumnName="EMP_NAME2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

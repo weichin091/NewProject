@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FM3DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TB_M_CODE">
+    <Key>
+      <PropertyRef Name="TYPE" />
+      <PropertyRef Name="CODE" />
+    </Key>
+    <Property Name="PK_NO" Type="nvarchar" MaxLength="50" />
+    <Property Name="TYPE" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CODE" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NAME1" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="NAME2" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="NAME3" Type="nvarchar" MaxLength="100" />
+    <Property Name="ANNOTATION" Type="varchar" MaxLength="1" />
+    <Property Name="SORTORDER" Type="numeric" Precision="30" Scale="0" />
+    <Property Name="IS_USED" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="CREATED_BY" Type="varchar" MaxLength="20" />
+    <Property Name="CREATED_DT" Type="datetime" />
+    <Property Name="UPDATED_BY" Type="varchar" MaxLength="20" />
+    <Property Name="UPDATED_DT" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TB_M_PCRT">
+    <Key>
+      <PropertyRef Name="PK_NO" />
+    </Key>
+    <Property Name="PK_NO" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="EMPID" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="LIC_CD" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LIC_NO" Type="nvarchar" MaxLength="100" />
+    <Property Name="LIC_DATE" Type="varchar" MaxLength="8" />
+    <Property Name="RE_LIC_DATE" Type="varchar" MaxLength="8" />
+    <Property Name="IS_ASSIGN" Type="varchar" MaxLength="1" />
+    <Property Name="IS_TEACHER" Type="varchar" MaxLength="1" />
+    <Property Name="IS_GRD" Type="varchar" MaxLength="1" />
+    <Property Name="GRD_NO" Type="nvarchar" MaxLength="100" />
+    <Property Name="CREATED_BY" Type="varchar" MaxLength="20" />
+    <Property Name="CREATED_DT" Type="datetime" />
+    <Property Name="UPDATED_BY" Type="varchar" MaxLength="20" />
+    <Property Name="UPDATED_DT" Type="datetime" />
+  </EntityType>
+  <EntityContainer Name="FM3DBModelStoreContainer">
+    <EntitySet Name="TB_M_CODE" EntityType="Self.TB_M_CODE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_M_PCRT" EntityType="Self.TB_M_PCRT" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
