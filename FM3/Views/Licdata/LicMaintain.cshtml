@@ -11,6 +11,13 @@
     <button id="searchBtn" type="submit" class="btn btn-primary my-1">查詢</button>
 }
 
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-danger" id="success-alert">
+        <strong>@TempData["Message"]</strong>
+    </div>
+}
+
 <div id="SearchResultSection">
     <br />
 
@@ -73,13 +80,16 @@
                 var form = $(this).parents('.modal').find('form');
                 var actionUrl = form.attr('action');
                 var sendData = form.serialize();
-                debugger;
                 $.post(actionUrl, sendData).done(function (data) {
-                    debugger;
                     ModalArea.find('.modal').modal('hide');
                     location.reload();
                 })
             })
+            
+            $(".alert").fadeTo(4000, 500).slideUp(500, function () {
+                $(".alert").slideUp(500);
+            });
+
 
         })
 

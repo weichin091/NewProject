@@ -5,9 +5,9 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title" id="editLicTitle">更新</h4>
-                @*<button type="button" class="close" data-dismiss="modal">
-                <span>x</span>
-            </button>*@
+                <!--<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">-->
+                @*<span>x</span>*@
+            <!--</button>-->
             </div>
             <div class="modal-body">
                 @using (Html.BeginForm("EditLic", "Licdata", FormMethod.Post, new { id = "Form1" }))
@@ -40,7 +40,7 @@
                 }
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">關閉</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">關閉</button>
                 <button type="button" class="btn btn-success" data-save="modal">確定更新</button>
             </div>
         </div>
