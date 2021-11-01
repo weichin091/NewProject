@@ -108,5 +108,36 @@ namespace FM3.Controllers
             return View();
         }
 
+        public ActionResult EmpLicLink(ACESFunc fundata, string empid)
+        {
+            UsersServices userService = new UsersServices();
+            List<Users> users = userService.GetUsers(fundata);
+            Session.Add("UserID", users[0].Userid);
+            Session.Add("UserName", users[0].Username);
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult EmpLicLink(string empid)
+        {
+            var empList = (from t in fB3DB.VW_H_EMP_DATA
+                           where t.EMP_ID == empid && t.EMP_STATUS == "01"
+                           select new { t.EMP_ID, t.EMP_NAME, t.DIV_DEPT_FULL_NAME }).FirstOrDefault();
+            if (empList == null)
+            {
+                Session.Add("empname", "查無資料");
+                Session.Add("empdept", "查無資料");
+                VW_H_EMP_DATA emp = new VW_H_EMP_DATA();
+                emp.EMP_NAME = "查無資料";
+                emp.DIV_DEPT_FULL_NAME = "查無資料";
+                return Json(new { rows = emp }, JsonRequestBehavior.AllowGet);
+            }
+            Session.Add("empname", empList.EMP_NAME);
+            Session.Add("empdept", empList.DIV_DEPT_FULL_NAME);
+
+            return Json(new { rows = empList }, JsonRequestBehavior.AllowGet);
+        }
+
     }
 }

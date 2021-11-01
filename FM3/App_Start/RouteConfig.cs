@@ -16,7 +16,7 @@ namespace FM3
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Licdata", action = "LicMaintain", id = UrlParameter.Optional }
+                defaults: new { controller = "Licdata", action = "EmpLicLink", id = UrlParameter.Optional }
             );
         }
     }

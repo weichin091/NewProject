@@ -173,6 +173,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FM3DB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\LicLinkViewModel.cs" />
     <Compile Include="Models\TB_M_CODE.cs">
       <DependentUpon>FM3DB.tt</DependentUpon>
     </Compile>
@@ -301,6 +302,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Licdata\LicMaintain.cshtml" />
     <Content Include="Views\Licdata\_editLicdata.cshtml" />
+    <Content Include="Views\Licdata\EmpLicLink.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
