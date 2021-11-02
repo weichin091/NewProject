@@ -6,9 +6,17 @@
 <h2>1.3證照主檔維護作業</h2>
 @using (Html.BeginForm("LicMaintain", "Licdata", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    @Html.AntiForgeryToken()
-    @Html.DropDownListFor(model => model.CODE, (List<SelectListItem>)ViewBag.SelectList, new { id = "ddl", @class = "form-control" })
-    <button id="searchBtn" type="submit" class="btn btn-primary my-1">查詢</button>
+<div class="row">
+    <div class="col-xs-6 col-md-3">
+        @Html.AntiForgeryToken()
+        @Html.DropDownListFor(model => model.CODE, (List<SelectListItem>)ViewBag.SelectList, new { id = "ddl", @class = "form-control" })
+    </div>
+    <div class="col-xs-6 col-md-4">
+        <button id="searchBtn" type="submit" class="btn btn-primary md-1">查詢</button>
+        <button id="addRowBtn" type="button" class="btn btn-secondary">新增資料</button>
+    </div>
+    <div class="col-xs-6 col-md-5"></div>
+</div>
 }
 
 @if (TempData["Message"] != null)
@@ -17,6 +25,7 @@
         <strong>@TempData["Message"]</strong>
     </div>
 }
+
 
 <div id="SearchResultSection">
     <br />
@@ -60,38 +69,39 @@
         </table>
     }
 </div>
-<div id="ModalArea"></div>
-@section Scripts{
-    <script type="text/javascript">
-        $(document).ready(function () {
-            var ModalArea = $('#ModalArea');
+    <div id="ModalArea"></div>
+    @section Scripts{
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#addRowBtn").prop("disabled", true);
+                var ModalArea = $('#ModalArea');
 
-            $('button[data-toggle="ajax-modal"]').click(function () {
+                $('button[data-toggle="ajax-modal"]').click(function () {
 
-                var url = $(this).data('url');
-                var decodedUrl = decodeURIComponent(url);
-                $.get(decodedUrl).done(function (data) {
-                    ModalArea.html(data);
-                    ModalArea.find('.modal').modal('show');
-                });
-            })
-
-            ModalArea.on('click', '[data-save="modal"]', function (event) {
-                var form = $(this).parents('.modal').find('form');
-                var actionUrl = form.attr('action');
-                var sendData = form.serialize();
-                $.post(actionUrl, sendData).done(function (data) {
-                    ModalArea.find('.modal').modal('hide');
-                    location.reload();
+                    var url = $(this).data('url');
+                    var decodedUrl = decodeURIComponent(url);
+                    $.get(decodedUrl).done(function (data) {
+                        ModalArea.html(data);
+                        ModalArea.find('.modal').modal('show');
+                    });
                 })
+
+                ModalArea.on('click', '[data-save="modal"]', function (event) {
+                    var form = $(this).parents('.modal').find('form');
+                    var actionUrl = form.attr('action');
+                    var sendData = form.serialize();
+                    $.post(actionUrl, sendData).done(function (data) {
+                        ModalArea.find('.modal').modal('hide');
+                        location.reload();
+                    })
+                })
+
+                $(".alert").fadeTo(4000, 500).slideUp(500, function () {
+                    $(".alert").slideUp(500);
+                });
+
+
             })
-            
-            $(".alert").fadeTo(4000, 500).slideUp(500, function () {
-                $(".alert").slideUp(500);
-            });
 
-
-        })
-
-    </script>
-}
+        </script>
+    }

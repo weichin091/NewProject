@@ -303,6 +303,7 @@
     <Content Include="Views\Licdata\LicMaintain.cshtml" />
     <Content Include="Views\Licdata\_editLicdata.cshtml" />
     <Content Include="Views\Licdata\EmpLicLink.cshtml" />
+    <Content Include="Views\Licdata\_NewLicdata.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

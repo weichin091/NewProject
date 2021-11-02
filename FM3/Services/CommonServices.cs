@@ -26,6 +26,7 @@ namespace FM3.Services
             List<TB_M_CODE> licCategories = common.GetLicCategory();
 
             var selectList = new List<SelectListItem>();
+            selectList.Add(new SelectListItem { Value = "000", Text = "請選擇" });
             foreach (TB_M_CODE liccategory in licCategories)
             {
                 selectList.Add(new SelectListItem()

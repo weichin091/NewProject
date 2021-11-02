@@ -13,15 +13,15 @@ namespace FM3.Controllers
         private FM3DBEntities fM3DB = new FM3DBEntities();
         private FB3DBEntities fB3DB = new FB3DBEntities();
 
-        //protected override void Dispose(bool disposing)
-        //{
-        //    if (disposing)
-        //    {
-        //        fM3DB.Dispose();
-        //        fB3DB.Dispose();
-        //    }
-        //    base.Dispose(disposing);
-        //}
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                fM3DB.Dispose();
+                fB3DB.Dispose();
+            }
+            base.Dispose(disposing);
+        }
 
         // GET: Licdata
         public ActionResult Index()
@@ -40,6 +40,35 @@ namespace FM3.Controllers
             Session.Add("UserName", users[0].Username);
 
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult NewLic()
+        {
+            //ModMaster modMaster = new ModMaster();
+            //            return PartialView("_NewLicdata", modMaster);
+            return null;
+        }
+
+        [HttpPost]
+        public ActionResult NewLic(TB_M_CODE modMaster)
+        {
+
+            //var checkMod = (from t in _context.ModMasters
+            //                where t.Country == modMaster.Country
+            //                 && t.CarType == modMaster.CarType
+            //                 && t.ModNo == modMaster.ModNo
+            //                select t).FirstOrDefault();
+            //if (checkMod != null)
+            //{
+            //    TempData["Message"] = "已存在相同Module。";
+            //    return PartialView("_NewLicdata", modMaster);
+            //}
+            //_context.ModMasters.Add(modMaster);
+            //_context.SaveChanges();
+            //TempData["Message"] = "新增成功。";
+            //return PartialView("_NewLicdata", modMaster);
+            return null;
         }
 
         [HttpGet]
@@ -104,7 +133,12 @@ namespace FM3.Controllers
             var empList = (from t in fM3DB.TB_M_CODE
                            where t.TYPE == data.CODE
                            select t).ToList();
+            //查無資料確認
             ViewBag.SearchResult = empList;
+            if (!Enumerable.Any(ViewBag.SearchResult))
+            {
+                TempData["Message"] = "查無資料";
+            }//查無資料確認
             return View();
         }
 
