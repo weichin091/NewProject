@@ -43,32 +43,79 @@ namespace FM3.Controllers
         }
 
         [HttpGet]
-        public ActionResult NewLic()
+        public ActionResult NewLic(string selectstr)
         {
-            //ModMaster modMaster = new ModMaster();
-            //            return PartialView("_NewLicdata", modMaster);
-            return null;
+            var selectList = new List<SelectListItem>();
+            selectList.Add(new SelectListItem()
+            {
+                Text = "是",
+                Value = "1",
+
+            });
+            selectList.Add(new SelectListItem()
+            {
+                Text = "否",
+                Value = "0",
+
+            });
+            Session["SelectList"] = selectList;
+            TempData["SelectList"] = selectList;
+            ViewBag.SelectList = selectList;
+            CommonServices commonServices = new CommonServices();
+            ViewBag.SelectList = commonServices.GetSelectList();
+            TB_M_CODE mod = new TB_M_CODE();
+            var maxmod = (from t in fM3DB.TB_M_CODE
+                       where t.TYPE == selectstr orderby t.CODE descending, t.NAME1 descending, t.SORTORDER descending
+                       select t).FirstOrDefault();
+
+            mod.PK_NO = Guid.NewGuid().ToString();
+            int max = Int32.Parse(maxmod.CODE.Substring(2, 3)) + 1;
+            string maxSting = string.Empty;
+            if(max/100 ==0)
+            {
+                maxSting = '0' +max.ToString();
+            }
+            else
+            {
+                maxSting = max.ToString();
+            }
+            mod.CODE = maxmod.CODE.Substring(0, 2) + maxSting;
+            mod.TYPE = selectstr;
+            mod.NAME1 = (Int32.Parse(maxmod.NAME1) + 1).ToString();
+            mod.SORTORDER = maxmod.SORTORDER + 1;
+            mod.CREATED_BY = Session["UserID"].ToString();
+            mod.CREATED_DT = DateTime.Now;
+            mod.UPDATED_BY = Session["UserID"].ToString();
+            mod.UPDATED_DT = DateTime.Now;
+            return PartialView("_NewLicdata", mod);
+            
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult NewLic(TB_M_CODE modMaster)
         {
+            fM3DB.TB_M_CODE.Add(modMaster);
+            fM3DB.SaveChanges();
+            TempData["Message"] = "新增成功。";
+            var selectList = new List<SelectListItem>();
+            selectList.Add(new SelectListItem()
+            {
+                Text = "是",
+                Value = "1",
 
-            //var checkMod = (from t in _context.ModMasters
-            //                where t.Country == modMaster.Country
-            //                 && t.CarType == modMaster.CarType
-            //                 && t.ModNo == modMaster.ModNo
-            //                select t).FirstOrDefault();
-            //if (checkMod != null)
-            //{
-            //    TempData["Message"] = "已存在相同Module。";
-            //    return PartialView("_NewLicdata", modMaster);
-            //}
-            //_context.ModMasters.Add(modMaster);
-            //_context.SaveChanges();
-            //TempData["Message"] = "新增成功。";
-            //return PartialView("_NewLicdata", modMaster);
-            return null;
+            });
+            selectList.Add(new SelectListItem()
+            {
+                Text = "否",
+                Value = "0",
+
+            });
+            Session["SelectList"] = selectList;
+            TempData["SelectList"] = selectList;
+            ViewBag.SelectList = selectList;
+
+            return PartialView("_NewLicdata", modMaster);
         }
 
         [HttpGet]
@@ -126,7 +173,7 @@ namespace FM3.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult LicMaintain(LicData data,string btnValue)
+        public ActionResult LicMaintain(LicData data)
         {
             CommonServices commonServices = new CommonServices();
             ViewBag.SelectList = commonServices.GetSelectList();
