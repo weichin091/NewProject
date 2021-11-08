@@ -200,22 +200,22 @@ namespace FM3.Controllers
         }
 
         [HttpPost]
-        public JsonResult EmpLicLink(string empid)
+        public ActionResult EmpLicLink(string empid)
         {
             var empList = (from t in fB3DB.VW_H_EMP_DATA
                            where t.EMP_ID == empid && t.EMP_STATUS == "01"
                            select new { t.EMP_ID, t.EMP_NAME, t.DIV_DEPT_FULL_NAME }).FirstOrDefault();
             if (empList == null)
             {
-                Session.Add("empname", "查無資料");
-                Session.Add("empdept", "查無資料");
                 VW_H_EMP_DATA emp = new VW_H_EMP_DATA();
                 emp.EMP_NAME = "查無資料";
                 emp.DIV_DEPT_FULL_NAME = "查無資料";
-                return Json(new { rows = emp }, JsonRequestBehavior.AllowGet);
+                ViewBag.empname = emp.EMP_NAME;
+                ViewBag.empdept = emp.DIV_DEPT_FULL_NAME;
+                return View();
             }
-            Session.Add("empname", empList.EMP_NAME);
-            Session.Add("empdept", empList.DIV_DEPT_FULL_NAME);
+            ViewBag.empname = empList.EMP_NAME;
+            ViewBag.empdept = empList.DIV_DEPT_FULL_NAME;
 
             var empLicList = (from t in fM3DB.TB_M_PCRT
                               join licname in fM3DB.TB_M_CODE
@@ -229,8 +229,8 @@ namespace FM3.Controllers
                 {
                     PK_NO = item.PK_NO,
                     EMP_ID = item.EMPID,
-                    EMP_NAME = Session["empname"].ToString(),
-                    DIV_DEPT_FULL_NAME = Session["empdept"].ToString(),
+                    EMP_NAME = empList.EMP_NAME,
+                    DIV_DEPT_FULL_NAME = empList.DIV_DEPT_FULL_NAME,
                     LIC_CD = item.LIC_CD,
                     LIC_DATE = item.LIC_DATE,
                     IS_ASSIGN = item.IS_ASSIGN ,
@@ -243,10 +243,12 @@ namespace FM3.Controllers
                     UPDATED_BY = item.UPDATED_BY,
                     UPDATED_DT = item.UPDATED_DT
                 });
+                
             }
             ViewBag.SearchResult = result;
 
-            return Json(new { rows = result }, JsonRequestBehavior.AllowGet);
+            //return Json(new { rows = result }, JsonRequestBehavior.AllowGet);
+            return View();
         }
 
         public ActionResult AddEmpLicLink(string empid)

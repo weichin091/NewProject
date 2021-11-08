@@ -71,4 +71,4 @@ D:\PGM\Prod\FM3\FM3\bin\roslyn\System.Buffers.dll
 D:\PGM\Prod\FM3\FM3\bin\roslyn\System.Memory.dll
 D:\PGM\Prod\FM3\FM3\bin\roslyn\System.Numerics.Vectors.dll
 D:\PGM\Prod\FM3\FM3\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
-D:\PGM\Prod\FM3\FM3\obj\Debug\FM3.csproj.AssemblyReference.cache
+D:\PGM\Prod\FM3\FM3\obj\Debug\FM3.csproj.CopyComplete

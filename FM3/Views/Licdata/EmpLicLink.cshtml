@@ -5,7 +5,7 @@
 
 <h2>1.4人員資格維護作業</h2>
 
-@using (Html.BeginForm("EmpLicLink", "LicData", FormMethod.Post, new { id = "Form1" }))
+@using (Html.BeginForm("EmpLicLink", "Licdata", FormMethod.Post, new { id = "Form1" }))
 {
     <div class="row">
         <div class="col-md-4">
@@ -15,7 +15,16 @@
                 </div>
                 <input type="text" id="empid" name="empid" class="form-control" placeholder="請輸入工號" aria-describedby="basic-addon2" required>
                 <div class="input-group-append">
-                    <button id="searchBtn" class="btn btn-outline-secondary" type="button">查詢</button>
+                    <button id="searchBtn" class="btn btn-outline-secondary" type="submit">查詢</button>
+                    @if (ViewBag.empname == "查無資料")
+                    {
+                        <button id="addRowBtn" type="button" class="btn btn-secondary" disabled>新增資料</button>
+                    }
+                    else
+                    {
+                        <button id="addRowBtn" type="button" class="btn btn-secondary" data-toggle="ajax-modal" data-target="#NewLic" data-url="@Url.Action("NewLic")">新增資料</button>
+                        <input name="hiddenstr" id="hiddenselectvalue" value="" hidden="hidden">
+                    }
                 </div>
             </div>
         </div>
@@ -24,7 +33,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">姓名</span>
                 </div>
-                    <input type="text" id="empname" name="empname" class="form-control" readonly="readonly" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    <input type="text" id="empname" name="empname" class="form-control" readonly="readonly" value=@ViewBag.empname  aria-label="Recipient's username"  aria-describedby="basic-addon2">
             </div>
         </div>
         <div class="col-md-6">
@@ -32,90 +41,11 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">部門</span>
                 </div>
-                    <input type="text" id="empdept" name="empdept" class="form-control" readonly="readonly" aria-describedby="basic-addon2">
+                    <input type="text" id="empdept" name="empdept" class="form-control" readonly="readonly" value=@ViewBag.empdept  aria-describedby="basic-addon2">
             </div>
         </div>
     </div>
 }
-<script type="text/javascript">
-            $(document).ready(function () {
-                $('#searchBtn').click(function () {
-                    debugger;
-                    emp = $('#empid').val();
-                    empId = { "empid": emp };
-                    $.ajax({
-                        url: "@Url.Action("EmpLicLink", "LicData")",
-                        type: 'POST',
-                        contentType: 'application/json',
-                        data: JSON.stringify(empId),
-                        datatype: 'json',
-                        success: function (response) {
-                            debugger;
-                            if (response != null) {
-                                @*var session_name = '@Request.RequestContext.HttpContext.Session["empname"]';
-                                var session_dept = '@Request.RequestContext.HttpContext.Session["empdept"]';*@
-                                $('#empname').val(response.rows[0].EMP_NAME);
-                                $('#empdept').val(response.rows[0].DIV_DEPT_FULL_NAME);
-                            } else {
-                                $('#empname').val(response.rows.EMP_NAME);
-                                $('#empdept').val(response.rows.DIV_DEPT_FULL_NAME);
-                                alert("Something went wrong");
-                            }
-                        }
-                   }).done(
-                        function (data) {
-                            if ($('#empname').val() != "查無資料") {
-                            debugger;
-                            }
-                        })
-                });
-            });
-</script>
-
-@*<script type="text/javascript">
-            $(document).ready(function () {
-                $('#searchBtn').click(function () {
-                    debugger;
-                    emp = $('#empid').val();
-                    empId = { "empid": emp };
-                    $.ajax({
-                        url: "@Url.Action("EmpLicLink", "LicData")",
-                        type: 'POST',
-                        contentType: 'application/json',
-                        data: JSON.stringify(empId),
-                        datatype: 'json',
-                        success: function (response) {
-                            debugger;
-                            if (response != null) {
-                                //var session_name = '<%=session.getValue("empname")%>';
-                                //var session_dept = '<%=session.getAttribute("empdept")%>';
-                                //$('#empname').val(session_name);
-                                //$('#empdept').val(session_dept);
-                            } else {
-                                alert("Something went wrong");
-                            }
-                        },
-                        failure: function (response) {
-                            alert(response.responseText);
-                        },
-                        error: function (response) {
-                            alert(response.responseText);
-                        }
-
-                    }).done(
-                        function (data) {
-                            if ($('#empname').val() != "查無資料") {
-            //                    showgrid(data);
-                                debugger;
-                            }
-                        })
-                    .fail(
-                        function (jqXHR, textStatus, errorThrown) {
-                            serrorFunction();
-                        });
-                });
-            });
-    </script>*@
 
 @if (TempData["Message"] != null)
 {
