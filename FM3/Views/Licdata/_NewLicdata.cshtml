@@ -1,0 +1,43 @@
+﻿
+@model FM3.Models.TB_M_CODE
+<div class="modal fade" id="EditLic">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="NewLicTitle">新增</h4>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm("NewLic", "Licdata", FormMethod.Post, new { id = "Form1" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        <label>代碼</label>
+                        @Html.TextBoxFor(model => model.CODE, new { id = "code", @class = "form-control", @readonly = "readonly" })
+                    </div>
+                    <div class="form-group">
+                        <label>證照名稱</label>
+                        @Html.TextBoxFor(model => model.NAME2, new { id = "namw2", @class = "form-control"})
+                    </div>
+                    <div class="form-group">
+                        <label>是否使用</label>
+                        @Html.DropDownListFor(model => model.IS_USED, (List<SelectListItem>)TempData["SelectList"], new { id = "ddl", @class = "form-control" })
+                    </div>
+                    @Html.Hidden("PK_NO");
+                    @Html.Hidden("TYPE");
+                    @Html.Hidden("NAME1");
+                    @Html.Hidden("NAME3");
+                    @Html.Hidden("ANNOTATION");
+                    @Html.Hidden("SORTORDER");
+                    @Html.Hidden("CREATED_BY");
+                    @Html.Hidden("CREATED_DT");
+                    @Html.Hidden("UPDATED_BY");
+                    @Html.Hidden("UPDATED_DT");
+                }
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">關閉</button>
+                <button type="button" class="btn btn-success" data-save="modal">確定新增</button>
+            </div>
+        </div>
+    </div>
+</div>
