@@ -1,0 +1,66 @@
+﻿
+@model FM3.Models.LicLinkViewModel
+<div class="modal fade" id="EditEmpLicLink">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="EditEmpLicLinkTitle">更新</h4>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm("EditEmpLicLink", "Licdata", FormMethod.Post, new { id = "Form1" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        <label>工號</label>
+                        @Html.TextBoxFor(model => model.EMP_ID, new { id = "empid", @class = "form-control", @readonly = "readonly" })
+                    </div>
+                    <div class="form-group">
+                        <label>姓名</label>
+                        @Html.TextBoxFor(model => model.EMP_NAME, new { id = "empname", @class = "form-control", @readonly = "readonly" })
+                    </div>
+                    <div class="form-group">
+                        <label>證照代碼</label>
+                        @Html.TextBoxFor(model => model.LIC_CD, new { id = "lic_cd", @class = "form-control", @readonly = "readonly" })
+                    </div>
+                    <div class="form-group">
+                        <label>證照名稱</label>
+                        @Html.TextBoxFor(model => model.LIC_NAME, new { id = "lic_name", @class = "form-control", @readonly = "readonly" })
+                    </div>
+                    <div class="form-group">
+                        <label>證照字號</label>
+                        @Html.TextBoxFor(model => model.LIC_NO, new { id = "licNo", @class = "form-control", @readonly = "readonly" })
+                    </div>
+                    <div class="form-group">
+                        <label>證照取得日期</label>
+                        @Html.TextBoxFor(model => model.LIC_DATE, new { id = "licdate", @class = "form-control", @readonly = "readonly" })
+                    </div>
+                    <div class="form-group">
+                        <label>是否指定</label>
+                        @Html.DropDownListFor(model => model.IS_ASSIGN, (List<SelectListItem>)TempData["SelectList"], new { id = "ddl", @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>是否為講師</label>
+                        @Html.DropDownListFor(model => model.IS_TEACHER, (List<SelectListItem>)TempData["SelectList"], new { id = "ddl", @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>是否結業</label>
+                        @Html.DropDownListFor(model => model.IS_GRD, (List<SelectListItem>)TempData["SelectList"], new { id = "ddl", @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>結業號碼</label>
+                        @Html.TextBoxFor(model => model.GRD_NO, new { id = "grdno", @class = "form-control", @readonly = "readonly" })
+                    </div>
+                    @Html.Hidden("PK_NO");
+                    @Html.Hidden("CREATED_BY");
+                    @Html.Hidden("CREATED_DT");
+                    @Html.Hidden("UPDATED_BY");
+                    @Html.Hidden("UPDATED_DT");
+                }
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">關閉</button>
+                <button type="button" class="btn btn-success" data-save="modal">確定更新</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,134 @@
+﻿@model FM3.Models.TB_M_CODE
+@{
+    ViewBag.Title = "LicMaintain";
+}
+
+<h2>1.3證照主檔維護作業</h2>
+<script type="text/javascript">
+    var selectvalue;
+    function SetUrlData() {
+        selectvalue = $("#ddl").val();
+        $("#hiddenselectvalue").attr('value', $("#ddl").val());
+        debugger;
+        var url = '@Url.Action("NewLic")';
+         //var txtVal = $('#textbox').val();
+        window.location.href = url + '/?str=' + selectvalue;
+        debugger;
+    }
+</script>
+@using (Html.BeginForm("LicMaintain", "Licdata", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        <div class="col-xs-6 col-md-3">
+            @Html.AntiForgeryToken()
+            @Html.DropDownListFor(model => model.CODE, (List<SelectListItem>)ViewBag.SelectList, new { id = "ddl", @class = "form-control" })
+        </div>
+        <div class="col-xs-6 col-md-4">
+            <button id="searchBtn" type="submit" class="btn btn-primary md-1">查詢</button>
+            @if (ViewBag.SearchResult != null)
+            {
+                if (!Enumerable.Any(ViewBag.SearchResult))
+                {
+                    <button id="addRowBtn" type="button" class="btn btn-secondary" disabled>新增資料</button>
+                }
+                else
+                {
+                    <button id="addRowBtn" type="button" class="btn btn-secondary" data-toggle="ajax-modal" data-target="#NewLic" data-url="@Url.Action("NewLic")">新增資料</button>
+                    <input name="hiddenstr" id="hiddenselectvalue" value="" hidden="hidden">
+                }
+            }
+        </div>
+        <div class="col-xs-6 col-md-5"></div>
+    </div>
+}
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-danger" id="success-alert">
+        <strong>@TempData["Message"]</strong>
+    </div>
+}
+
+
+<div id="SearchResultSection">
+    <br />
+
+    @if (ViewBag.SearchResult != null)
+    {
+        <table class="table table-hover">
+            <thead class="table-light">
+                <tr>
+                    <th>代碼</th>
+                    <th>名稱</th>
+                    <th>是否使用</th>
+                    <th>動作</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in (List<FM3.Models.TB_M_CODE>)ViewBag.SearchResult)
+                {
+                    <tr>
+                        <td>@item.CODE</td>
+                        @*<td>@item.NAME1</td>*@
+                        <td>@item.NAME2</td>
+                        @*<td>@item.NAME3</td>*@
+                        @if (item.IS_USED == "1")
+                        {
+                            item.IS_USED = "是";
+                        }
+                        else
+                        {
+                            item.IS_USED = "否";
+                        }
+                        <td>@item.IS_USED</td>
+                        <td>
+                            <button type="button" class="btn btn-success" data-toggle="ajax-modal" data-target="#EditLic" data-url="@Url.Action($"EditLic/?code={item.CODE}")">
+                                編輯
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+<div id="ModalArea"></div>
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var ModalArea = $('#ModalArea');
+            $('button[data-toggle="ajax-modal"]').click(function () {
+                var ddlValue = "";
+                var url = $(this).data('url');
+                if ($(this).is('[data-target~="#NewLic"]')) {
+                    ddlValue = $('#ddl').val();
+                    url = url + "/?selectstr=" + ddlValue;
+                }
+                var decodedUrl = decodeURIComponent(url);
+                $.get(decodedUrl).done(function (data) {
+                    ModalArea.html(data);
+                    ModalArea.find('.modal').modal('show');
+                });
+            })
+
+            ModalArea.on('click', '[data-save="modal"]', function (event) {
+                var form = $(this).parents('.modal').find('form');
+                var actionUrl = form.attr('action');
+                var sendData = form.serialize();
+                $.post(actionUrl, sendData).done(function (data) {
+                    ModalArea.find('.modal').modal('hide');
+                    location.reload();
+                })
+            })
+
+
+
+            $(".alert").fadeTo(4000, 500).slideUp(500, function () {
+                $(".alert").slideUp(500);
+            });
+
+
+        })
+
+    </script>
+}

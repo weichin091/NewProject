@@ -304,6 +304,7 @@
     <Content Include="Views\Licdata\_editLicdata.cshtml" />
     <Content Include="Views\Licdata\EmpLicLink.cshtml" />
     <Content Include="Views\Licdata\_NewLicdata.cshtml" />
+    <Content Include="Views\Licdata\_EditEmpLicLink.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

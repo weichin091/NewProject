@@ -1,0 +1,512 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FB3DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'FB3DB.dbo.FB3_EMP_DATA' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+  <EntityType Name="FB3_EMP_DATA">
+    <Key>
+      <PropertyRef Name="EMP_ID" />
+      <PropertyRef Name="JPN_CD" />
+      <PropertyRef Name="EMP_NAME" />
+      <PropertyRef Name="DEPT_NO" />
+      <PropertyRef Name="DIRECT_HEAD_EMP_ID" />
+      <PropertyRef Name="PJOB_CD" />
+      <PropertyRef Name="PJOB_DESC" />
+      <PropertyRef Name="PLANT_CD" />
+      <PropertyRef Name="UpdateTime" />
+    </Key>
+    <Property Name="EMP_ID" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="EMP_STATUS" Type="varchar" MaxLength="2" />
+    <Property Name="JPN_CD" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="EMP_NAME" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="EMP_ENGNAME" Type="varchar" MaxLength="50" />
+    <Property Name="EMP_CHG_CD" Type="varchar" MaxLength="2" />
+    <Property Name="DEPT_NO" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="DIRECT_HEAD_EMP_ID" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="PJOB_CD" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="PJOB_DESC" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="PLANT_CD" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="COMPANY_EMAIL" Type="varchar" MaxLength="60" />
+    <Property Name="UpdateTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'FB3DB.dbo.VW_H_DEPT_DATA' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+  <EntityType Name="VW_H_DEPT_DATA">
+    <Key>
+      <PropertyRef Name="DEPT_NO" />
+      <PropertyRef Name="DEPT_NAME" />
+      <PropertyRef Name="DEPT_SNAME" />
+      <PropertyRef Name="DEPT_LEVEL" />
+      <PropertyRef Name="HEAD_EMP_ID" />
+      <PropertyRef Name="HEAD_EMP_NAME" />
+      <PropertyRef Name="UP_DEPT_NO" />
+      <PropertyRef Name="UP_DEPT_NAME" />
+      <PropertyRef Name="ACC_CD" />
+      <PropertyRef Name="ACC_DEPT_NO" />
+      <PropertyRef Name="ACC_DEPT_NAME" />
+      <PropertyRef Name="CAR_TYPE" />
+      <PropertyRef Name="COST_DEPT_NO" />
+      <PropertyRef Name="BUDGET_DEPT_NO" />
+      <PropertyRef Name="DEPT_FULL_NAME" />
+      <PropertyRef Name="DIV_DEPT_FULL_NAME" />
+      <PropertyRef Name="DEPT_NO_20" />
+      <PropertyRef Name="DEPT_NAME_20" />
+      <PropertyRef Name="DEPT_NO_40" />
+      <PropertyRef Name="DEPT_NAME_40" />
+    </Key>
+    <Property Name="DEPT_NO" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="DEPT_NAME" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="DEPT_SNAME" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="DEPT_LEVEL" Type="numeric" Precision="2" Scale="0" Nullable="false" />
+    <Property Name="HEAD_EMP_ID" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="HEAD_EMP_NAME" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="UP_DEPT_NO" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="UP_DEPT_NAME" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="ACC_CD" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="ACC_DEPT_NO" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="ACC_DEPT_NAME" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CAR_TYPE" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="COST_DEPT_NO" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="BUDGET_DEPT_NO" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="DEPT_FULL_NAME" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="DIV_DEPT_FULL_NAME" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="DEPT_NO_20" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="DEPT_NAME_20" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="DEPT_NO_30" Type="varchar" MaxLength="7" />
+    <Property Name="DEPT_NAME_30" Type="nvarchar" MaxLength="60" />
+    <Property Name="DEPT_NO_40" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="DEPT_NAME_40" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="DEPT_NO_50" Type="varchar" MaxLength="7" />
+    <Property Name="DEPT_NAME_50" Type="nvarchar" MaxLength="60" />
+    <Property Name="DEPT_NO_60" Type="varchar" MaxLength="7" />
+    <Property Name="DEPT_NAME_60" Type="nvarchar" MaxLength="60" />
+    <Property Name="DEPT_NO_70" Type="varchar" MaxLength="7" />
+    <Property Name="DEPT_NAME_70" Type="nvarchar" MaxLength="60" />
+  </EntityType>
+  <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'FB3DB.dbo.VW_H_DEPT_LEVEL' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+  <EntityType Name="VW_H_DEPT_LEVEL">
+    <Key>
+      <PropertyRef Name="DEPT_LEVEL" />
+      <PropertyRef Name="DEPT_LEVEL_DESC" />
+      <PropertyRef Name="LEVEL_TYPE" />
+      <PropertyRef Name="IS_VALID" />
+    </Key>
+    <Property Name="DEPT_LEVEL" Type="numeric" Precision="2" Scale="0" Nullable="false" />
+    <Property Name="DEPT_LEVEL_DESC" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="LEVEL_TYPE" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="IS_VALID" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="REMARK" Type="nvarchar" MaxLength="210" />
+  </EntityType>
+  <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'FB3DB.dbo.VW_H_EMP_DATA' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+  <EntityType Name="VW_H_EMP_DATA">
+    <Key>
+      <PropertyRef Name="EMP_ID" />
+      <PropertyRef Name="EMP_NAME" />
+      <PropertyRef Name="WS_CD" />
+      <PropertyRef Name="COMPANY_CD" />
+      <PropertyRef Name="PLANT_CD" />
+      <PropertyRef Name="DEPT_NO" />
+      <PropertyRef Name="DEPT_FULL_NAME" />
+      <PropertyRef Name="DIV_DEPT_FULL_NAME" />
+      <PropertyRef Name="DEPT_NO_20" />
+      <PropertyRef Name="DEPT_NAME_20" />
+      <PropertyRef Name="DEPT_NO_30" />
+      <PropertyRef Name="DEPT_NAME_30" />
+      <PropertyRef Name="DEPT_NO_40" />
+      <PropertyRef Name="DEPT_NAME_40" />
+      <PropertyRef Name="DEPT_NO_50" />
+      <PropertyRef Name="DEPT_NAME_50" />
+      <PropertyRef Name="DEPT_NO_60" />
+      <PropertyRef Name="DEPT_NAME_60" />
+      <PropertyRef Name="DEPT_NO_70" />
+      <PropertyRef Name="DEPT_NAME_70" />
+      <PropertyRef Name="EMP_CD" />
+      <PropertyRef Name="EMP_DESC" />
+      <PropertyRef Name="LEVEL_CD" />
+      <PropertyRef Name="GRADE_CD" />
+      <PropertyRef Name="PJOB_CD" />
+      <PropertyRef Name="PJOB_DESC" />
+      <PropertyRef Name="WORK_SHIFT_CD" />
+      <PropertyRef Name="WORK_SHIFT_DESC" />
+      <PropertyRef Name="CALENDAR_CD" />
+      <PropertyRef Name="CALENDAR_DESC" />
+      <PropertyRef Name="WORK_CD" />
+      <PropertyRef Name="WORK_DESC" />
+      <PropertyRef Name="ACC_CD" />
+      <PropertyRef Name="IS_PAY_SUBSIST" />
+      <PropertyRef Name="IS_MASTER" />
+      <PropertyRef Name="DIRECT_HEAD_EMP_ID" />
+      <PropertyRef Name="IS_UPD_HEAD" />
+      <PropertyRef Name="OVERTIME_CTL_CD" />
+      <PropertyRef Name="IS_DUTY_CHECK" />
+      <PropertyRef Name="UNION_PJOB_CD" />
+      <PropertyRef Name="NATION_CD" />
+      <PropertyRef Name="JPN_CD" />
+      <PropertyRef Name="LICENSE_ID" />
+      <PropertyRef Name="SEX_CD" />
+      <PropertyRef Name="BLOOD_TYPE" />
+      <PropertyRef Name="HEIGHT" />
+      <PropertyRef Name="WEIGHT" />
+      <PropertyRef Name="BIRTHPLACE" />
+      <PropertyRef Name="RELATIVES" />
+      <PropertyRef Name="INCOME_CD" />
+      <PropertyRef Name="URGENT_CONTACT_NAME" />
+      <PropertyRef Name="URGENT_CONTACT_RELATION" />
+      <PropertyRef Name="URGENT_CONTACT_TEL" />
+      <PropertyRef Name="REGISTER_ZIP_CD" />
+      <PropertyRef Name="REGISTER_COUNTY" />
+      <PropertyRef Name="REGISTER_REGION" />
+      <PropertyRef Name="REGISTER_ADDR" />
+      <PropertyRef Name="REGISTER_TEL" />
+      <PropertyRef Name="CONTACT_ZIP_CD" />
+      <PropertyRef Name="CONTACT_COUNTY" />
+      <PropertyRef Name="CONTACT_REGION" />
+      <PropertyRef Name="CONTACT_ADDR" />
+      <PropertyRef Name="CONTACT_TEL" />
+      <PropertyRef Name="COMPANY_EMAIL" />
+      <PropertyRef Name="SALARY_EMAIL" />
+      <PropertyRef Name="EDUCATION_CD" />
+      <PropertyRef Name="SCHOOL_NAME" />
+      <PropertyRef Name="DEPARTMENT_NAME" />
+      <PropertyRef Name="SALARY_EDUCATION_CD" />
+      <PropertyRef Name="SALARY_GRADUATION_YEAR" />
+      <PropertyRef Name="APPROVE_WORK_YEARS" />
+      <PropertyRef Name="SALARY_EMAIL_CD" />
+    </Key>
+    <Property Name="EMP_ID" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="EMP_NAME" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="EMP_ENGNAME" Type="varchar" MaxLength="50" />
+    <Property Name="EMP_STATUS" Type="varchar" MaxLength="2" />
+    <Property Name="EMP_STATUS_DESC" Type="nvarchar" MaxLength="150" />
+    <Property Name="EMP_CHG_CD" Type="varchar" MaxLength="2" />
+    <Property Name="EMP_CHG_DESC" Type="nvarchar" MaxLength="150" />
+    <Property Name="WORK_YEARS" Type="numeric" Precision="4" Scale="2" />
+    <Property Name="WORK_DAYS" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="SERVICE_YEARS" Type="numeric" Precision="4" Scale="2" />
+    <Property Name="SERVICE_DAYS" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="AGE" Type="numeric" Precision="5" Scale="2" />
+    <Property Name="RECENT_LEVEL_WORK_DAYS" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="RECENT_PJOB_WORK_DAYS" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="RECENT_DEPT_WORK_DAYS" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="RECENT_DIV_WORK_DAYS" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="STUDENT_WORK_DAYS" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="K_WORK_DAYS" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="T_WORK_DAYS" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="WS_CD" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="WS_DESC" Type="nvarchar" MaxLength="150" />
+    <Property Name="COMPANY_CD" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="COMPANY_NAME" Type="nvarchar" MaxLength="60" />
+    <Property Name="PLANT_CD" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="PLANT_NAME" Type="nvarchar" MaxLength="150" />
+    <Property Name="DEPT_NO" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="DEPT_NAME" Type="nvarchar" MaxLength="60" />
+    <Property Name="DEPT_FULL_NAME" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="DIV_DEPT_FULL_NAME" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="DEPT_NO_20" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="DEPT_NAME_20" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="DEPT_NO_30" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="DEPT_NAME_30" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="DEPT_NO_40" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="DEPT_NAME_40" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="DEPT_NO_50" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="DEPT_NAME_50" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="DEPT_NO_60" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="DEPT_NAME_60" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="DEPT_NO_70" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="DEPT_NAME_70" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="EMP_CD" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="EMP_DESC" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="LEVEL_CD" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="GRADE_CD" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="PJOB_CD" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="PJOB_DESC" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="WORK_SHIFT_CD" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="WORK_SHIFT_DESC" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CALENDAR_CD" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="CALENDAR_DESC" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="WORK_CD" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="WORK_DESC" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ACC_CD" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="JOIN_DT" Type="datetime" />
+    <Property Name="EXAM_EXPIRE_DT" Type="datetime" />
+    <Property Name="LEAVE_DT" Type="datetime" />
+    <Property Name="LEAVE_REASON" Type="varchar" MaxLength="3" />
+    <Property Name="LEAVE_REASON_DESC" Type="nvarchar" MaxLength="30" />
+    <Property Name="PLAN_RETENTION_EDT" Type="datetime" />
+    <Property Name="RETENTION_EDT" Type="datetime" />
+    <Property Name="TRANSFER_REASON" Type="varchar" MaxLength="3" />
+    <Property Name="TRANSFER_REASON_DESC" Type="nvarchar" MaxLength="30" />
+    <Property Name="TRANSFER_SDT" Type="datetime" />
+    <Property Name="PLAN_TRANSFER_EDT" Type="datetime" />
+    <Property Name="TRANSFER_EDT" Type="datetime" />
+    <Property Name="TRANSFER_NATION_CD" Type="varchar" MaxLength="3" />
+    <Property Name="TRANSFER_NATION_NAME" Type="nvarchar" MaxLength="150" />
+    <Property Name="TRANSFER_COMPANY_CD" Type="varchar" MaxLength="2" />
+    <Property Name="TRANSFER_COMPANY_NAME" Type="nvarchar" MaxLength="150" />
+    <Property Name="TRANSFER_DEPT" Type="nvarchar" MaxLength="60" />
+    <Property Name="IS_PAY_SUBSIST" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="PLAN_DESPATCH_DT" Type="datetime" />
+    <Property Name="BACK_SCHOOL_DT" Type="datetime" />
+    <Property Name="BACK_PLANT_DT" Type="datetime" />
+    <Property Name="BE_CONTRACT_DT" Type="datetime" />
+    <Property Name="BE_DESPATCH_DT" Type="datetime" />
+    <Property Name="KEEP_DESPATCH_DT" Type="datetime" />
+    <Property Name="BE_EMP_DT" Type="datetime" />
+    <Property Name="RECENT_LEVEL_DT" Type="datetime" />
+    <Property Name="RECENT_PJOB_DT" Type="datetime" />
+    <Property Name="RECENT_DEPT_DT" Type="datetime" />
+    <Property Name="RECENT_DIV_DT" Type="datetime" />
+    <Property Name="IS_MASTER" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="DIRECT_HEAD_EMP_ID" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="IS_UPD_HEAD" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="OVERTIME_CTL_CD" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="HEALTH_YEAR" Type="varchar" MaxLength="4" />
+    <Property Name="IS_DUTY_CHECK" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="UNION_PJOB_CD" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="MODEL_YEAR" Type="varchar" MaxLength="4" />
+    <Property Name="HONOR_YEAR" Type="varchar" MaxLength="4" />
+    <Property Name="NATION_CD" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="JPN_CD" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="LICENSE_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="PASSPORT_ID" Type="varchar" MaxLength="20" />
+    <Property Name="SEX_CD" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="BIRTH_DT" Type="datetime" />
+    <Property Name="BLOOD_TYPE" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="HEIGHT" Type="numeric" Precision="3" Scale="0" Nullable="false" />
+    <Property Name="WEIGHT" Type="numeric" Precision="4" Scale="1" Nullable="false" />
+    <Property Name="BIRTHPLACE" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="ARMY_CD" Type="varchar" MaxLength="1" />
+    <Property Name="SALARY_ACCOUNT_BANK" Type="varchar" MaxLength="3" />
+    <Property Name="SALARY_ACCOUNT_BRANCH" Type="varchar" MaxLength="4" />
+    <Property Name="SALARY_ACCOUNT_NO" Type="varchar" MaxLength="14" />
+    <Property Name="RELATIVES" Type="numeric" Precision="2" Scale="0" Nullable="false" />
+    <Property Name="INCOME_CD" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="URGENT_CONTACT_NAME" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="URGENT_CONTACT_RELATION" Type="nvarchar" MaxLength="210" Nullable="false" />
+    <Property Name="URGENT_CONTACT_TEL" Type="varchar" MaxLength="210" Nullable="false" />
+    <Property Name="REGISTER_ZIP_CD" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="REGISTER_COUNTY" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="REGISTER_REGION" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="REGISTER_ADDR" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="REGISTER_TEL" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="CONTACT_ZIP_CD" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="CONTACT_COUNTY" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="CONTACT_REGION" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="CONTACT_ADDR" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="CONTACT_TEL" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="MOBILE_TEL_1" Type="varchar" MaxLength="30" />
+    <Property Name="MOBILE_TEL_2" Type="varchar" MaxLength="30" />
+    <Property Name="COMPANY_EMAIL" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="PERSONAL_EMAIL" Type="varchar" MaxLength="60" />
+    <Property Name="SALARY_EMAIL" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="REMARK" Type="nvarchar" MaxLength="210" />
+    <Property Name="EDUCATION_CD" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="SCHOOL_NAME" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="DEPARTMENT_NAME" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="SALARY_EDUCATION_CD" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="SALARY_GRADUATION_YEAR" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="APPROVE_WORK_YEARS" Type="numeric" Precision="38" Scale="1" Nullable="false" />
+    <Property Name="SALARY_EMAIL_CD" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="EMP_NAME2" Type="nvarchar" MaxLength="60" />
+  </EntityType>
+  <EntityContainer Name="FB3DBModelStoreContainer">
+    <EntitySet Name="FB3_EMP_DATA" EntityType="Self.FB3_EMP_DATA" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [FB3_EMP_DATA].[EMP_ID] AS [EMP_ID], 
+    [FB3_EMP_DATA].[EMP_STATUS] AS [EMP_STATUS], 
+    [FB3_EMP_DATA].[JPN_CD] AS [JPN_CD], 
+    [FB3_EMP_DATA].[EMP_NAME] AS [EMP_NAME], 
+    [FB3_EMP_DATA].[EMP_ENGNAME] AS [EMP_ENGNAME], 
+    [FB3_EMP_DATA].[EMP_CHG_CD] AS [EMP_CHG_CD], 
+    [FB3_EMP_DATA].[DEPT_NO] AS [DEPT_NO], 
+    [FB3_EMP_DATA].[DIRECT_HEAD_EMP_ID] AS [DIRECT_HEAD_EMP_ID], 
+    [FB3_EMP_DATA].[PJOB_CD] AS [PJOB_CD], 
+    [FB3_EMP_DATA].[PJOB_DESC] AS [PJOB_DESC], 
+    [FB3_EMP_DATA].[PLANT_CD] AS [PLANT_CD], 
+    [FB3_EMP_DATA].[COMPANY_EMAIL] AS [COMPANY_EMAIL], 
+    [FB3_EMP_DATA].[UpdateTime] AS [UpdateTime]
+    FROM [dbo].[FB3_EMP_DATA] AS [FB3_EMP_DATA]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VW_H_DEPT_DATA" EntityType="Self.VW_H_DEPT_DATA" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VW_H_DEPT_DATA].[DEPT_NO] AS [DEPT_NO], 
+    [VW_H_DEPT_DATA].[DEPT_NAME] AS [DEPT_NAME], 
+    [VW_H_DEPT_DATA].[DEPT_SNAME] AS [DEPT_SNAME], 
+    [VW_H_DEPT_DATA].[DEPT_LEVEL] AS [DEPT_LEVEL], 
+    [VW_H_DEPT_DATA].[HEAD_EMP_ID] AS [HEAD_EMP_ID], 
+    [VW_H_DEPT_DATA].[HEAD_EMP_NAME] AS [HEAD_EMP_NAME], 
+    [VW_H_DEPT_DATA].[UP_DEPT_NO] AS [UP_DEPT_NO], 
+    [VW_H_DEPT_DATA].[UP_DEPT_NAME] AS [UP_DEPT_NAME], 
+    [VW_H_DEPT_DATA].[ACC_CD] AS [ACC_CD], 
+    [VW_H_DEPT_DATA].[ACC_DEPT_NO] AS [ACC_DEPT_NO], 
+    [VW_H_DEPT_DATA].[ACC_DEPT_NAME] AS [ACC_DEPT_NAME], 
+    [VW_H_DEPT_DATA].[CAR_TYPE] AS [CAR_TYPE], 
+    [VW_H_DEPT_DATA].[COST_DEPT_NO] AS [COST_DEPT_NO], 
+    [VW_H_DEPT_DATA].[BUDGET_DEPT_NO] AS [BUDGET_DEPT_NO], 
+    [VW_H_DEPT_DATA].[DEPT_FULL_NAME] AS [DEPT_FULL_NAME], 
+    [VW_H_DEPT_DATA].[DIV_DEPT_FULL_NAME] AS [DIV_DEPT_FULL_NAME], 
+    [VW_H_DEPT_DATA].[DEPT_NO_20] AS [DEPT_NO_20], 
+    [VW_H_DEPT_DATA].[DEPT_NAME_20] AS [DEPT_NAME_20], 
+    [VW_H_DEPT_DATA].[DEPT_NO_30] AS [DEPT_NO_30], 
+    [VW_H_DEPT_DATA].[DEPT_NAME_30] AS [DEPT_NAME_30], 
+    [VW_H_DEPT_DATA].[DEPT_NO_40] AS [DEPT_NO_40], 
+    [VW_H_DEPT_DATA].[DEPT_NAME_40] AS [DEPT_NAME_40], 
+    [VW_H_DEPT_DATA].[DEPT_NO_50] AS [DEPT_NO_50], 
+    [VW_H_DEPT_DATA].[DEPT_NAME_50] AS [DEPT_NAME_50], 
+    [VW_H_DEPT_DATA].[DEPT_NO_60] AS [DEPT_NO_60], 
+    [VW_H_DEPT_DATA].[DEPT_NAME_60] AS [DEPT_NAME_60], 
+    [VW_H_DEPT_DATA].[DEPT_NO_70] AS [DEPT_NO_70], 
+    [VW_H_DEPT_DATA].[DEPT_NAME_70] AS [DEPT_NAME_70]
+    FROM [dbo].[VW_H_DEPT_DATA] AS [VW_H_DEPT_DATA]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VW_H_DEPT_LEVEL" EntityType="Self.VW_H_DEPT_LEVEL" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VW_H_DEPT_LEVEL].[DEPT_LEVEL] AS [DEPT_LEVEL], 
+    [VW_H_DEPT_LEVEL].[DEPT_LEVEL_DESC] AS [DEPT_LEVEL_DESC], 
+    [VW_H_DEPT_LEVEL].[LEVEL_TYPE] AS [LEVEL_TYPE], 
+    [VW_H_DEPT_LEVEL].[IS_VALID] AS [IS_VALID], 
+    [VW_H_DEPT_LEVEL].[REMARK] AS [REMARK]
+    FROM [dbo].[VW_H_DEPT_LEVEL] AS [VW_H_DEPT_LEVEL]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VW_H_EMP_DATA" EntityType="Self.VW_H_EMP_DATA" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VW_H_EMP_DATA].[EMP_ID] AS [EMP_ID], 
+    [VW_H_EMP_DATA].[EMP_NAME] AS [EMP_NAME], 
+    [VW_H_EMP_DATA].[EMP_ENGNAME] AS [EMP_ENGNAME], 
+    [VW_H_EMP_DATA].[EMP_STATUS] AS [EMP_STATUS], 
+    [VW_H_EMP_DATA].[EMP_STATUS_DESC] AS [EMP_STATUS_DESC], 
+    [VW_H_EMP_DATA].[EMP_CHG_CD] AS [EMP_CHG_CD], 
+    [VW_H_EMP_DATA].[EMP_CHG_DESC] AS [EMP_CHG_DESC], 
+    [VW_H_EMP_DATA].[WORK_YEARS] AS [WORK_YEARS], 
+    [VW_H_EMP_DATA].[WORK_DAYS] AS [WORK_DAYS], 
+    [VW_H_EMP_DATA].[SERVICE_YEARS] AS [SERVICE_YEARS], 
+    [VW_H_EMP_DATA].[SERVICE_DAYS] AS [SERVICE_DAYS], 
+    [VW_H_EMP_DATA].[AGE] AS [AGE], 
+    [VW_H_EMP_DATA].[RECENT_LEVEL_WORK_DAYS] AS [RECENT_LEVEL_WORK_DAYS], 
+    [VW_H_EMP_DATA].[RECENT_PJOB_WORK_DAYS] AS [RECENT_PJOB_WORK_DAYS], 
+    [VW_H_EMP_DATA].[RECENT_DEPT_WORK_DAYS] AS [RECENT_DEPT_WORK_DAYS], 
+    [VW_H_EMP_DATA].[RECENT_DIV_WORK_DAYS] AS [RECENT_DIV_WORK_DAYS], 
+    [VW_H_EMP_DATA].[STUDENT_WORK_DAYS] AS [STUDENT_WORK_DAYS], 
+    [VW_H_EMP_DATA].[K_WORK_DAYS] AS [K_WORK_DAYS], 
+    [VW_H_EMP_DATA].[T_WORK_DAYS] AS [T_WORK_DAYS], 
+    [VW_H_EMP_DATA].[WS_CD] AS [WS_CD], 
+    [VW_H_EMP_DATA].[WS_DESC] AS [WS_DESC], 
+    [VW_H_EMP_DATA].[COMPANY_CD] AS [COMPANY_CD], 
+    [VW_H_EMP_DATA].[COMPANY_NAME] AS [COMPANY_NAME], 
+    [VW_H_EMP_DATA].[PLANT_CD] AS [PLANT_CD], 
+    [VW_H_EMP_DATA].[PLANT_NAME] AS [PLANT_NAME], 
+    [VW_H_EMP_DATA].[DEPT_NO] AS [DEPT_NO], 
+    [VW_H_EMP_DATA].[DEPT_NAME] AS [DEPT_NAME], 
+    [VW_H_EMP_DATA].[DEPT_FULL_NAME] AS [DEPT_FULL_NAME], 
+    [VW_H_EMP_DATA].[DIV_DEPT_FULL_NAME] AS [DIV_DEPT_FULL_NAME], 
+    [VW_H_EMP_DATA].[DEPT_NO_20] AS [DEPT_NO_20], 
+    [VW_H_EMP_DATA].[DEPT_NAME_20] AS [DEPT_NAME_20], 
+    [VW_H_EMP_DATA].[DEPT_NO_30] AS [DEPT_NO_30], 
+    [VW_H_EMP_DATA].[DEPT_NAME_30] AS [DEPT_NAME_30], 
+    [VW_H_EMP_DATA].[DEPT_NO_40] AS [DEPT_NO_40], 
+    [VW_H_EMP_DATA].[DEPT_NAME_40] AS [DEPT_NAME_40], 
+    [VW_H_EMP_DATA].[DEPT_NO_50] AS [DEPT_NO_50], 
+    [VW_H_EMP_DATA].[DEPT_NAME_50] AS [DEPT_NAME_50], 
+    [VW_H_EMP_DATA].[DEPT_NO_60] AS [DEPT_NO_60], 
+    [VW_H_EMP_DATA].[DEPT_NAME_60] AS [DEPT_NAME_60], 
+    [VW_H_EMP_DATA].[DEPT_NO_70] AS [DEPT_NO_70], 
+    [VW_H_EMP_DATA].[DEPT_NAME_70] AS [DEPT_NAME_70], 
+    [VW_H_EMP_DATA].[EMP_CD] AS [EMP_CD], 
+    [VW_H_EMP_DATA].[EMP_DESC] AS [EMP_DESC], 
+    [VW_H_EMP_DATA].[LEVEL_CD] AS [LEVEL_CD], 
+    [VW_H_EMP_DATA].[GRADE_CD] AS [GRADE_CD], 
+    [VW_H_EMP_DATA].[PJOB_CD] AS [PJOB_CD], 
+    [VW_H_EMP_DATA].[PJOB_DESC] AS [PJOB_DESC], 
+    [VW_H_EMP_DATA].[WORK_SHIFT_CD] AS [WORK_SHIFT_CD], 
+    [VW_H_EMP_DATA].[WORK_SHIFT_DESC] AS [WORK_SHIFT_DESC], 
+    [VW_H_EMP_DATA].[CALENDAR_CD] AS [CALENDAR_CD], 
+    [VW_H_EMP_DATA].[CALENDAR_DESC] AS [CALENDAR_DESC], 
+    [VW_H_EMP_DATA].[WORK_CD] AS [WORK_CD], 
+    [VW_H_EMP_DATA].[WORK_DESC] AS [WORK_DESC], 
+    [VW_H_EMP_DATA].[ACC_CD] AS [ACC_CD], 
+    [VW_H_EMP_DATA].[JOIN_DT] AS [JOIN_DT], 
+    [VW_H_EMP_DATA].[EXAM_EXPIRE_DT] AS [EXAM_EXPIRE_DT], 
+    [VW_H_EMP_DATA].[LEAVE_DT] AS [LEAVE_DT], 
+    [VW_H_EMP_DATA].[LEAVE_REASON] AS [LEAVE_REASON], 
+    [VW_H_EMP_DATA].[LEAVE_REASON_DESC] AS [LEAVE_REASON_DESC], 
+    [VW_H_EMP_DATA].[PLAN_RETENTION_EDT] AS [PLAN_RETENTION_EDT], 
+    [VW_H_EMP_DATA].[RETENTION_EDT] AS [RETENTION_EDT], 
+    [VW_H_EMP_DATA].[TRANSFER_REASON] AS [TRANSFER_REASON], 
+    [VW_H_EMP_DATA].[TRANSFER_REASON_DESC] AS [TRANSFER_REASON_DESC], 
+    [VW_H_EMP_DATA].[TRANSFER_SDT] AS [TRANSFER_SDT], 
+    [VW_H_EMP_DATA].[PLAN_TRANSFER_EDT] AS [PLAN_TRANSFER_EDT], 
+    [VW_H_EMP_DATA].[TRANSFER_EDT] AS [TRANSFER_EDT], 
+    [VW_H_EMP_DATA].[TRANSFER_NATION_CD] AS [TRANSFER_NATION_CD], 
+    [VW_H_EMP_DATA].[TRANSFER_NATION_NAME] AS [TRANSFER_NATION_NAME], 
+    [VW_H_EMP_DATA].[TRANSFER_COMPANY_CD] AS [TRANSFER_COMPANY_CD], 
+    [VW_H_EMP_DATA].[TRANSFER_COMPANY_NAME] AS [TRANSFER_COMPANY_NAME], 
+    [VW_H_EMP_DATA].[TRANSFER_DEPT] AS [TRANSFER_DEPT], 
+    [VW_H_EMP_DATA].[IS_PAY_SUBSIST] AS [IS_PAY_SUBSIST], 
+    [VW_H_EMP_DATA].[PLAN_DESPATCH_DT] AS [PLAN_DESPATCH_DT], 
+    [VW_H_EMP_DATA].[BACK_SCHOOL_DT] AS [BACK_SCHOOL_DT], 
+    [VW_H_EMP_DATA].[BACK_PLANT_DT] AS [BACK_PLANT_DT], 
+    [VW_H_EMP_DATA].[BE_CONTRACT_DT] AS [BE_CONTRACT_DT], 
+    [VW_H_EMP_DATA].[BE_DESPATCH_DT] AS [BE_DESPATCH_DT], 
+    [VW_H_EMP_DATA].[KEEP_DESPATCH_DT] AS [KEEP_DESPATCH_DT], 
+    [VW_H_EMP_DATA].[BE_EMP_DT] AS [BE_EMP_DT], 
+    [VW_H_EMP_DATA].[RECENT_LEVEL_DT] AS [RECENT_LEVEL_DT], 
+    [VW_H_EMP_DATA].[RECENT_PJOB_DT] AS [RECENT_PJOB_DT], 
+    [VW_H_EMP_DATA].[RECENT_DEPT_DT] AS [RECENT_DEPT_DT], 
+    [VW_H_EMP_DATA].[RECENT_DIV_DT] AS [RECENT_DIV_DT], 
+    [VW_H_EMP_DATA].[IS_MASTER] AS [IS_MASTER], 
+    [VW_H_EMP_DATA].[DIRECT_HEAD_EMP_ID] AS [DIRECT_HEAD_EMP_ID], 
+    [VW_H_EMP_DATA].[IS_UPD_HEAD] AS [IS_UPD_HEAD], 
+    [VW_H_EMP_DATA].[OVERTIME_CTL_CD] AS [OVERTIME_CTL_CD], 
+    [VW_H_EMP_DATA].[HEALTH_YEAR] AS [HEALTH_YEAR], 
+    [VW_H_EMP_DATA].[IS_DUTY_CHECK] AS [IS_DUTY_CHECK], 
+    [VW_H_EMP_DATA].[UNION_PJOB_CD] AS [UNION_PJOB_CD], 
+    [VW_H_EMP_DATA].[MODEL_YEAR] AS [MODEL_YEAR], 
+    [VW_H_EMP_DATA].[HONOR_YEAR] AS [HONOR_YEAR], 
+    [VW_H_EMP_DATA].[NATION_CD] AS [NATION_CD], 
+    [VW_H_EMP_DATA].[JPN_CD] AS [JPN_CD], 
+    [VW_H_EMP_DATA].[LICENSE_ID] AS [LICENSE_ID], 
+    [VW_H_EMP_DATA].[PASSPORT_ID] AS [PASSPORT_ID], 
+    [VW_H_EMP_DATA].[SEX_CD] AS [SEX_CD], 
+    [VW_H_EMP_DATA].[BIRTH_DT] AS [BIRTH_DT], 
+    [VW_H_EMP_DATA].[BLOOD_TYPE] AS [BLOOD_TYPE], 
+    [VW_H_EMP_DATA].[HEIGHT] AS [HEIGHT], 
+    [VW_H_EMP_DATA].[WEIGHT] AS [WEIGHT], 
+    [VW_H_EMP_DATA].[BIRTHPLACE] AS [BIRTHPLACE], 
+    [VW_H_EMP_DATA].[ARMY_CD] AS [ARMY_CD], 
+    [VW_H_EMP_DATA].[SALARY_ACCOUNT_BANK] AS [SALARY_ACCOUNT_BANK], 
+    [VW_H_EMP_DATA].[SALARY_ACCOUNT_BRANCH] AS [SALARY_ACCOUNT_BRANCH], 
+    [VW_H_EMP_DATA].[SALARY_ACCOUNT_NO] AS [SALARY_ACCOUNT_NO], 
+    [VW_H_EMP_DATA].[RELATIVES] AS [RELATIVES], 
+    [VW_H_EMP_DATA].[INCOME_CD] AS [INCOME_CD], 
+    [VW_H_EMP_DATA].[URGENT_CONTACT_NAME] AS [URGENT_CONTACT_NAME], 
+    [VW_H_EMP_DATA].[URGENT_CONTACT_RELATION] AS [URGENT_CONTACT_RELATION], 
+    [VW_H_EMP_DATA].[URGENT_CONTACT_TEL] AS [URGENT_CONTACT_TEL], 
+    [VW_H_EMP_DATA].[REGISTER_ZIP_CD] AS [REGISTER_ZIP_CD], 
+    [VW_H_EMP_DATA].[REGISTER_COUNTY] AS [REGISTER_COUNTY], 
+    [VW_H_EMP_DATA].[REGISTER_REGION] AS [REGISTER_REGION], 
+    [VW_H_EMP_DATA].[REGISTER_ADDR] AS [REGISTER_ADDR], 
+    [VW_H_EMP_DATA].[REGISTER_TEL] AS [REGISTER_TEL], 
+    [VW_H_EMP_DATA].[CONTACT_ZIP_CD] AS [CONTACT_ZIP_CD], 
+    [VW_H_EMP_DATA].[CONTACT_COUNTY] AS [CONTACT_COUNTY], 
+    [VW_H_EMP_DATA].[CONTACT_REGION] AS [CONTACT_REGION], 
+    [VW_H_EMP_DATA].[CONTACT_ADDR] AS [CONTACT_ADDR], 
+    [VW_H_EMP_DATA].[CONTACT_TEL] AS [CONTACT_TEL], 
+    [VW_H_EMP_DATA].[MOBILE_TEL_1] AS [MOBILE_TEL_1], 
+    [VW_H_EMP_DATA].[MOBILE_TEL_2] AS [MOBILE_TEL_2], 
+    [VW_H_EMP_DATA].[COMPANY_EMAIL] AS [COMPANY_EMAIL], 
+    [VW_H_EMP_DATA].[PERSONAL_EMAIL] AS [PERSONAL_EMAIL], 
+    [VW_H_EMP_DATA].[SALARY_EMAIL] AS [SALARY_EMAIL], 
+    [VW_H_EMP_DATA].[REMARK] AS [REMARK], 
+    [VW_H_EMP_DATA].[EDUCATION_CD] AS [EDUCATION_CD], 
+    [VW_H_EMP_DATA].[SCHOOL_NAME] AS [SCHOOL_NAME], 
+    [VW_H_EMP_DATA].[DEPARTMENT_NAME] AS [DEPARTMENT_NAME], 
+    [VW_H_EMP_DATA].[SALARY_EDUCATION_CD] AS [SALARY_EDUCATION_CD], 
+    [VW_H_EMP_DATA].[SALARY_GRADUATION_YEAR] AS [SALARY_GRADUATION_YEAR], 
+    [VW_H_EMP_DATA].[APPROVE_WORK_YEARS] AS [APPROVE_WORK_YEARS], 
+    [VW_H_EMP_DATA].[SALARY_EMAIL_CD] AS [SALARY_EMAIL_CD], 
+    [VW_H_EMP_DATA].[EMP_NAME2] AS [EMP_NAME2]
+    FROM [dbo].[VW_H_EMP_DATA] AS [VW_H_EMP_DATA]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

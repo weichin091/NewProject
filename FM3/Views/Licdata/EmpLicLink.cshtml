@@ -16,14 +16,13 @@
                 <input type="text" id="empid" name="empid" class="form-control" placeholder="請輸入工號" aria-describedby="basic-addon2" required>
                 <div class="input-group-append">
                     <button id="searchBtn" class="btn btn-outline-secondary" type="submit">查詢</button>
-                    @if (ViewBag.empname == "查無資料")
+                    @if (ViewBag.empname == "查無資料" || ViewBag.empname==null)
                     {
-                        <button id="addRowBtn" type="button" class="btn btn-secondary" disabled>新增資料</button>
-                    }
-                    else
-                    {
-                        <button id="addRowBtn" type="button" class="btn btn-secondary" data-toggle="ajax-modal" data-target="#NewLic" data-url="@Url.Action("NewLic")">新增資料</button>
-                        <input name="hiddenstr" id="hiddenselectvalue" value="" hidden="hidden">
+                           <button id="addRowBtn" type="button" class="btn btn-secondary" disabled>新增資料</button>
+                    }else
+                    { 
+                            <button id="addRowBtn" type="button" class="btn btn-primary" data-toggle="ajax-modal" data-target="#NewLic" data-url="@Url.Action("NewEmpLicLink")">新增資料</button>
+                            <input name="hiddenstr" id="hiddenselectvalue" value="" hidden="hidden">
                     }
                 </div>
             </div>
@@ -84,58 +83,58 @@
             <tbody>
                 @foreach (var item in (List<FM3.Models.LicLinkViewModel>)ViewBag.SearchResult)
                 {
-                    <tr>
-                        <td>@item.EMP_ID</td>
-                        @*<td>@item.NAME1</td>*@
-                        <td>@item.EMP_NAME</td>
-                        <td>@item.LIC_CD</td>
-                        <td>@item.LIC_NO</td>
-                        <td>@item.LIC_DATE</td>
-                        @if (item.IS_ASSIGN == "1")
-                        {
-                            item.IS_ASSIGN = "是";
-                        }
-                        else
-                        {
-                            item.IS_ASSIGN = "否";
-                        }
-                        <td>@item.IS_ASSIGN</td>
-                        @if (item.IS_TEACHER == "1")
-                        {
-                            item.IS_TEACHER = "是";
-                        }
-                        else
-                        {
-                            item.IS_TEACHER = "否";
-                        }
-                        <td>@item.IS_TEACHER</td>
-                        @if (item.IS_GRD == "1")
-                        {
-                            item.IS_GRD = "是";
-                        }
-                        else
-                        {
-                            item.IS_GRD = "否";
-                        }
-                        <td>@item.IS_GRD</td>
-                        <td>@item.GRD_NO</td>
-                        <td>@item.RE_LIC_DATE</td>
-                        <td>@item.CREATED_BY</td>
-                        <td>@item.CREATED_DT</td>
-                        <td>@item.UPDATED_BY</td>
-                        <td>@item.UPDATED_DT</td>
+                <tr>
+                    <td>@item.EMP_ID</td>
+                    @*<td>@item.NAME1</td>*@
+                    <td>@item.EMP_NAME</td>
+                    <td>@item.LIC_CD</td>
+                    <td>@item.LIC_NAME</td>
+                    <td>@item.LIC_NO</td>
+                    <td>@item.LIC_DATE</td>
+                    @if (item.IS_ASSIGN == "1")
+                    {
+                        item.IS_ASSIGN = "是";
+                    }
+                    else
+                    {
+                        item.IS_ASSIGN = "否";
+                    }
+                    <td>@item.IS_ASSIGN</td>
+                    @if (item.IS_TEACHER == "1")
+                    {
+                        item.IS_TEACHER = "是";
+                    }
+                    else
+                    {
+                        item.IS_TEACHER = "否";
+                    }
+                    <td>@item.IS_TEACHER</td>
+                    @if (item.IS_GRD == "1")
+                    {
+                        item.IS_GRD = "是";
+                    }
+                    else
+                    {
+                        item.IS_GRD = "否";
+                    }
+                    <td>@item.IS_GRD</td>
+                    <td>@item.GRD_NO</td>
+                    <td>@item.RE_LIC_DATE</td>
+                    <td>@item.CREATED_BY</td>
+                    <td>@item.CREATED_DT</td>
+                    <td>@item.UPDATED_BY</td>
+                    <td>@item.UPDATED_DT</td>
 
-                        <td>
-                            <button type="button" class="btn btn-success" data-toggle="ajax-modal" data-target="#EditLic" data-url="@Url.Action($"EditEmpLicLink/?empid={item.EMP_ID}")">
-                                編輯
-                            </button>
-                            @using (Html.BeginForm("DelEmpLicLink", "Licdata", FormMethod.Post))
-                            {
-                                @Html.AntiForgeryToken()
-                                <button type="submit" name="key" value="@item.PK_NO" class="btn  btn-danger" onclick="return confirm('確定刪除?')">刪除</button>
-                            }
-                        </td>
-                    </tr>
+                    <td>
+                        <button type="button" class="btn btn-success" data-toggle="ajax-modal" data-target="#EditLic" data-url="@Url.Action($"EditEmpLicLink/?pkno={item.PK_NO}")">
+                            編輯
+                        </button>
+                        @using (Html.BeginForm("DelEmpLicLink", "Licdata", FormMethod.Post))
+                        {
+                @Html.AntiForgeryToken()
+                                        <button type="submit" name="key" value="@item.PK_NO" class="btn  btn-danger" onclick="return confirm('確定刪除?')">刪除</button>}
+                    </td>
+                </tr>
                 }
             </tbody>
         </table>
@@ -155,6 +154,7 @@
                 }
                 var decodedUrl = decodeURIComponent(url);
                 $.get(decodedUrl).done(function (data) {
+                    debugger;
                     ModalArea.html(data);
                     ModalArea.find('.modal').modal('show');
                 });

@@ -1,0 +1,311 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FB3DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="FB3_EMP_DATA">
+    <Key>
+      <PropertyRef Name="EMP_ID" />
+      <PropertyRef Name="JPN_CD" />
+      <PropertyRef Name="EMP_NAME" />
+      <PropertyRef Name="DEPT_NO" />
+      <PropertyRef Name="DIRECT_HEAD_EMP_ID" />
+      <PropertyRef Name="PJOB_CD" />
+      <PropertyRef Name="PJOB_DESC" />
+      <PropertyRef Name="PLANT_CD" />
+      <PropertyRef Name="UpdateTime" />
+    </Key>
+    <Property Name="EMP_ID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMP_STATUS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="JPN_CD" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMP_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EMP_ENGNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EMP_CHG_CD" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="DEPT_NO" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DIRECT_HEAD_EMP_ID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PJOB_CD" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PJOB_DESC" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PLANT_CD" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="COMPANY_EMAIL" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="UpdateTime" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="VW_H_DEPT_DATA">
+    <Key>
+      <PropertyRef Name="DEPT_NO" />
+      <PropertyRef Name="DEPT_NAME" />
+      <PropertyRef Name="DEPT_SNAME" />
+      <PropertyRef Name="DEPT_LEVEL" />
+      <PropertyRef Name="HEAD_EMP_ID" />
+      <PropertyRef Name="HEAD_EMP_NAME" />
+      <PropertyRef Name="UP_DEPT_NO" />
+      <PropertyRef Name="UP_DEPT_NAME" />
+      <PropertyRef Name="ACC_CD" />
+      <PropertyRef Name="ACC_DEPT_NO" />
+      <PropertyRef Name="ACC_DEPT_NAME" />
+      <PropertyRef Name="CAR_TYPE" />
+      <PropertyRef Name="COST_DEPT_NO" />
+      <PropertyRef Name="BUDGET_DEPT_NO" />
+      <PropertyRef Name="DEPT_FULL_NAME" />
+      <PropertyRef Name="DIV_DEPT_FULL_NAME" />
+      <PropertyRef Name="DEPT_NO_20" />
+      <PropertyRef Name="DEPT_NAME_20" />
+      <PropertyRef Name="DEPT_NO_40" />
+      <PropertyRef Name="DEPT_NAME_40" />
+    </Key>
+    <Property Name="DEPT_NO" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DEPT_NAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DEPT_SNAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DEPT_LEVEL" Type="Decimal" Precision="2" Scale="0" Nullable="false" />
+    <Property Name="HEAD_EMP_ID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="HEAD_EMP_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UP_DEPT_NO" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UP_DEPT_NAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ACC_CD" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ACC_DEPT_NO" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ACC_DEPT_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CAR_TYPE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="COST_DEPT_NO" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BUDGET_DEPT_NO" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DEPT_FULL_NAME" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DIV_DEPT_FULL_NAME" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DEPT_NO_20" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DEPT_NAME_20" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DEPT_NO_30" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="DEPT_NAME_30" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="DEPT_NO_40" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DEPT_NAME_40" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DEPT_NO_50" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="DEPT_NAME_50" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="DEPT_NO_60" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="DEPT_NAME_60" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="DEPT_NO_70" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="DEPT_NAME_70" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="VW_H_DEPT_LEVEL">
+    <Key>
+      <PropertyRef Name="DEPT_LEVEL" />
+      <PropertyRef Name="DEPT_LEVEL_DESC" />
+      <PropertyRef Name="LEVEL_TYPE" />
+      <PropertyRef Name="IS_VALID" />
+    </Key>
+    <Property Name="DEPT_LEVEL" Type="Decimal" Precision="2" Scale="0" Nullable="false" />
+    <Property Name="DEPT_LEVEL_DESC" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LEVEL_TYPE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IS_VALID" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="REMARK" Type="String" MaxLength="210" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="VW_H_EMP_DATA">
+    <Key>
+      <PropertyRef Name="EMP_ID" />
+      <PropertyRef Name="EMP_NAME" />
+      <PropertyRef Name="WS_CD" />
+      <PropertyRef Name="COMPANY_CD" />
+      <PropertyRef Name="PLANT_CD" />
+      <PropertyRef Name="DEPT_NO" />
+      <PropertyRef Name="DEPT_FULL_NAME" />
+      <PropertyRef Name="DIV_DEPT_FULL_NAME" />
+      <PropertyRef Name="DEPT_NO_20" />
+      <PropertyRef Name="DEPT_NAME_20" />
+      <PropertyRef Name="DEPT_NO_30" />
+      <PropertyRef Name="DEPT_NAME_30" />
+      <PropertyRef Name="DEPT_NO_40" />
+      <PropertyRef Name="DEPT_NAME_40" />
+      <PropertyRef Name="DEPT_NO_50" />
+      <PropertyRef Name="DEPT_NAME_50" />
+      <PropertyRef Name="DEPT_NO_60" />
+      <PropertyRef Name="DEPT_NAME_60" />
+      <PropertyRef Name="DEPT_NO_70" />
+      <PropertyRef Name="DEPT_NAME_70" />
+      <PropertyRef Name="EMP_CD" />
+      <PropertyRef Name="EMP_DESC" />
+      <PropertyRef Name="LEVEL_CD" />
+      <PropertyRef Name="GRADE_CD" />
+      <PropertyRef Name="PJOB_CD" />
+      <PropertyRef Name="PJOB_DESC" />
+      <PropertyRef Name="WORK_SHIFT_CD" />
+      <PropertyRef Name="WORK_SHIFT_DESC" />
+      <PropertyRef Name="CALENDAR_CD" />
+      <PropertyRef Name="CALENDAR_DESC" />
+      <PropertyRef Name="WORK_CD" />
+      <PropertyRef Name="WORK_DESC" />
+      <PropertyRef Name="ACC_CD" />
+      <PropertyRef Name="IS_PAY_SUBSIST" />
+      <PropertyRef Name="IS_MASTER" />
+      <PropertyRef Name="DIRECT_HEAD_EMP_ID" />
+      <PropertyRef Name="IS_UPD_HEAD" />
+      <PropertyRef Name="OVERTIME_CTL_CD" />
+      <PropertyRef Name="IS_DUTY_CHECK" />
+      <PropertyRef Name="UNION_PJOB_CD" />
+      <PropertyRef Name="NATION_CD" />
+      <PropertyRef Name="JPN_CD" />
+      <PropertyRef Name="LICENSE_ID" />
+      <PropertyRef Name="SEX_CD" />
+      <PropertyRef Name="BLOOD_TYPE" />
+      <PropertyRef Name="HEIGHT" />
+      <PropertyRef Name="WEIGHT" />
+      <PropertyRef Name="BIRTHPLACE" />
+      <PropertyRef Name="RELATIVES" />
+      <PropertyRef Name="INCOME_CD" />
+      <PropertyRef Name="URGENT_CONTACT_NAME" />
+      <PropertyRef Name="URGENT_CONTACT_RELATION" />
+      <PropertyRef Name="URGENT_CONTACT_TEL" />
+      <PropertyRef Name="REGISTER_ZIP_CD" />
+      <PropertyRef Name="REGISTER_COUNTY" />
+      <PropertyRef Name="REGISTER_REGION" />
+      <PropertyRef Name="REGISTER_ADDR" />
+      <PropertyRef Name="REGISTER_TEL" />
+      <PropertyRef Name="CONTACT_ZIP_CD" />
+      <PropertyRef Name="CONTACT_COUNTY" />
+      <PropertyRef Name="CONTACT_REGION" />
+      <PropertyRef Name="CONTACT_ADDR" />
+      <PropertyRef Name="CONTACT_TEL" />
+      <PropertyRef Name="COMPANY_EMAIL" />
+      <PropertyRef Name="SALARY_EMAIL" />
+      <PropertyRef Name="EDUCATION_CD" />
+      <PropertyRef Name="SCHOOL_NAME" />
+      <PropertyRef Name="DEPARTMENT_NAME" />
+      <PropertyRef Name="SALARY_EDUCATION_CD" />
+      <PropertyRef Name="SALARY_GRADUATION_YEAR" />
+      <PropertyRef Name="APPROVE_WORK_YEARS" />
+      <PropertyRef Name="SALARY_EMAIL_CD" />
+    </Key>
+    <Property Name="EMP_ID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMP_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EMP_ENGNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EMP_STATUS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="EMP_STATUS_DESC" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="EMP_CHG_CD" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="EMP_CHG_DESC" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="WORK_YEARS" Type="Decimal" Precision="4" Scale="2" />
+    <Property Name="WORK_DAYS" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="SERVICE_YEARS" Type="Decimal" Precision="4" Scale="2" />
+    <Property Name="SERVICE_DAYS" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="AGE" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="RECENT_LEVEL_WORK_DAYS" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="RECENT_PJOB_WORK_DAYS" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="RECENT_DEPT_WORK_DAYS" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="RECENT_DIV_WORK_DAYS" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="STUDENT_WORK_DAYS" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="K_WORK_DAYS" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="T_WORK_DAYS" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="WS_CD" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="WS_DESC" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="COMPANY_CD" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="COMPANY_NAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="PLANT_CD" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PLANT_NAME" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="DEPT_NO" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DEPT_NAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="DEPT_FULL_NAME" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DIV_DEPT_FULL_NAME" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DEPT_NO_20" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DEPT_NAME_20" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DEPT_NO_30" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DEPT_NAME_30" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DEPT_NO_40" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DEPT_NAME_40" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DEPT_NO_50" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DEPT_NAME_50" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DEPT_NO_60" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DEPT_NAME_60" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DEPT_NO_70" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DEPT_NAME_70" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EMP_CD" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMP_DESC" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LEVEL_CD" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="GRADE_CD" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PJOB_CD" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PJOB_DESC" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="WORK_SHIFT_CD" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="WORK_SHIFT_DESC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CALENDAR_CD" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CALENDAR_DESC" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="WORK_CD" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="WORK_DESC" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ACC_CD" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="JOIN_DT" Type="DateTime" Precision="3" />
+    <Property Name="EXAM_EXPIRE_DT" Type="DateTime" Precision="3" />
+    <Property Name="LEAVE_DT" Type="DateTime" Precision="3" />
+    <Property Name="LEAVE_REASON" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="LEAVE_REASON_DESC" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="PLAN_RETENTION_EDT" Type="DateTime" Precision="3" />
+    <Property Name="RETENTION_EDT" Type="DateTime" Precision="3" />
+    <Property Name="TRANSFER_REASON" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="TRANSFER_REASON_DESC" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="TRANSFER_SDT" Type="DateTime" Precision="3" />
+    <Property Name="PLAN_TRANSFER_EDT" Type="DateTime" Precision="3" />
+    <Property Name="TRANSFER_EDT" Type="DateTime" Precision="3" />
+    <Property Name="TRANSFER_NATION_CD" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="TRANSFER_NATION_NAME" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="TRANSFER_COMPANY_CD" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="TRANSFER_COMPANY_NAME" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="TRANSFER_DEPT" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="IS_PAY_SUBSIST" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PLAN_DESPATCH_DT" Type="DateTime" Precision="3" />
+    <Property Name="BACK_SCHOOL_DT" Type="DateTime" Precision="3" />
+    <Property Name="BACK_PLANT_DT" Type="DateTime" Precision="3" />
+    <Property Name="BE_CONTRACT_DT" Type="DateTime" Precision="3" />
+    <Property Name="BE_DESPATCH_DT" Type="DateTime" Precision="3" />
+    <Property Name="KEEP_DESPATCH_DT" Type="DateTime" Precision="3" />
+    <Property Name="BE_EMP_DT" Type="DateTime" Precision="3" />
+    <Property Name="RECENT_LEVEL_DT" Type="DateTime" Precision="3" />
+    <Property Name="RECENT_PJOB_DT" Type="DateTime" Precision="3" />
+    <Property Name="RECENT_DEPT_DT" Type="DateTime" Precision="3" />
+    <Property Name="RECENT_DIV_DT" Type="DateTime" Precision="3" />
+    <Property Name="IS_MASTER" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DIRECT_HEAD_EMP_ID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IS_UPD_HEAD" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="OVERTIME_CTL_CD" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="HEALTH_YEAR" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="IS_DUTY_CHECK" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UNION_PJOB_CD" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MODEL_YEAR" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="HONOR_YEAR" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="NATION_CD" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="JPN_CD" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LICENSE_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PASSPORT_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SEX_CD" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BIRTH_DT" Type="DateTime" Precision="3" />
+    <Property Name="BLOOD_TYPE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="HEIGHT" Type="Decimal" Precision="3" Scale="0" Nullable="false" />
+    <Property Name="WEIGHT" Type="Decimal" Precision="4" Scale="1" Nullable="false" />
+    <Property Name="BIRTHPLACE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ARMY_CD" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="SALARY_ACCOUNT_BANK" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="SALARY_ACCOUNT_BRANCH" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="SALARY_ACCOUNT_NO" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+    <Property Name="RELATIVES" Type="Decimal" Precision="2" Scale="0" Nullable="false" />
+    <Property Name="INCOME_CD" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="URGENT_CONTACT_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="URGENT_CONTACT_RELATION" Type="String" MaxLength="210" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="URGENT_CONTACT_TEL" Type="String" MaxLength="210" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="REGISTER_ZIP_CD" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="REGISTER_COUNTY" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="REGISTER_REGION" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="REGISTER_ADDR" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="REGISTER_TEL" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CONTACT_ZIP_CD" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CONTACT_COUNTY" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CONTACT_REGION" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CONTACT_ADDR" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CONTACT_TEL" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MOBILE_TEL_1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="MOBILE_TEL_2" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="COMPANY_EMAIL" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PERSONAL_EMAIL" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="SALARY_EMAIL" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="REMARK" Type="String" MaxLength="210" FixedLength="false" Unicode="true" />
+    <Property Name="EDUCATION_CD" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SCHOOL_NAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DEPARTMENT_NAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SALARY_EDUCATION_CD" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SALARY_GRADUATION_YEAR" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="APPROVE_WORK_YEARS" Type="Decimal" Precision="38" Scale="1" Nullable="false" />
+    <Property Name="SALARY_EMAIL_CD" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMP_NAME2" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="FB3DBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="FB3_EMP_DATA" EntityType="Self.FB3_EMP_DATA" />
+    <EntitySet Name="VW_H_DEPT_DATA" EntityType="Self.VW_H_DEPT_DATA" />
+    <EntitySet Name="VW_H_DEPT_LEVEL" EntityType="Self.VW_H_DEPT_LEVEL" />
+    <EntitySet Name="VW_H_EMP_DATA" EntityType="Self.VW_H_EMP_DATA" />
+  </EntityContainer>
+</Schema>

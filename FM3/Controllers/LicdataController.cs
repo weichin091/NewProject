@@ -251,7 +251,7 @@ namespace FM3.Controllers
             return View();
         }
 
-        public ActionResult AddEmpLicLink(string empid)
+        public ActionResult NewEmpLicLink(string empid)
         {
             //var empList = (from t in fB3DB.VW_H_EMP_DATA
             //               where t.EMP_ID == empid && t.EMP_STATUS == "01"
@@ -271,24 +271,18 @@ namespace FM3.Controllers
             return null;
         }
 
-        public ActionResult EditEmpLicLink(string empid)
+        public ActionResult EditEmpLicLink(string pkno)
         {
-            //var empList = (from t in fB3DB.VW_H_EMP_DATA
-            //               where t.EMP_ID == empid && t.EMP_STATUS == "01"
-            //               select new { t.EMP_ID, t.EMP_NAME, t.DIV_DEPT_FULL_NAME }).FirstOrDefault();
-            //if (empList == null)
-            //{
-            //    Session.Add("empname", "查無資料");
-            //    Session.Add("empdept", "查無資料");
-            //    VW_H_EMP_DATA emp = new VW_H_EMP_DATA();
-            //    emp.EMP_NAME = "查無資料";
-            //    emp.DIV_DEPT_FULL_NAME = "查無資料";
-            //    return Json(new { rows = emp }, JsonRequestBehavior.AllowGet);
-            //}
+            var empLicList = (from t in fM3DB.TB_M_PCRT
+                              join licname in fM3DB.TB_M_CODE
+                              on t.LIC_CD equals licname.CODE
+                              where t.PK_NO == pkno
+                              select new { t.PK_NO, t.EMPID, t.LIC_CD, licname.NAME2, t.LIC_DATE, t.LIC_NO, t.IS_ASSIGN, t.IS_TEACHER, t.IS_GRD, t.RE_LIC_DATE, t.CREATED_BY, t.CREATED_DT, t.UPDATED_BY, t.UPDATED_DT }).ToList();
+            List<LicLinkViewModel> result = new List<LicLinkViewModel>();
             //Session.Add("empname", empList.EMP_NAME);
             //Session.Add("empdept", empList.DIV_DEPT_FULL_NAME);
             //return Json(new { rows = empList }, JsonRequestBehavior.AllowGet);
-            return null;
+            return PartialView("_EditEmpLicLink", empLicList);
         }
 
         public ActionResult DelEmpLicLink(string pkno)

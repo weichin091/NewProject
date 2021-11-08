@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FM3DBModelStoreContainer" CdmEntityContainer="FM3DBEntities">
+    <EntitySetMapping Name="TB_M_CODE">
+      <EntityTypeMapping TypeName="FM3DBModel.TB_M_CODE">
+        <MappingFragment StoreEntitySet="TB_M_CODE">
+          <ScalarProperty Name="PK_NO" ColumnName="PK_NO" />
+          <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+          <ScalarProperty Name="CODE" ColumnName="CODE" />
+          <ScalarProperty Name="NAME1" ColumnName="NAME1" />
+          <ScalarProperty Name="NAME2" ColumnName="NAME2" />
+          <ScalarProperty Name="NAME3" ColumnName="NAME3" />
+          <ScalarProperty Name="ANNOTATION" ColumnName="ANNOTATION" />
+          <ScalarProperty Name="SORTORDER" ColumnName="SORTORDER" />
+          <ScalarProperty Name="IS_USED" ColumnName="IS_USED" />
+          <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+          <ScalarProperty Name="CREATED_DT" ColumnName="CREATED_DT" />
+          <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
+          <ScalarProperty Name="UPDATED_DT" ColumnName="UPDATED_DT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_M_PCRT">
+      <EntityTypeMapping TypeName="FM3DBModel.TB_M_PCRT">
+        <MappingFragment StoreEntitySet="TB_M_PCRT">
+          <ScalarProperty Name="PK_NO" ColumnName="PK_NO" />
+          <ScalarProperty Name="EMPID" ColumnName="EMPID" />
+          <ScalarProperty Name="LIC_CD" ColumnName="LIC_CD" />
+          <ScalarProperty Name="LIC_NO" ColumnName="LIC_NO" />
+          <ScalarProperty Name="LIC_DATE" ColumnName="LIC_DATE" />
+          <ScalarProperty Name="RE_LIC_DATE" ColumnName="RE_LIC_DATE" />
+          <ScalarProperty Name="IS_ASSIGN" ColumnName="IS_ASSIGN" />
+          <ScalarProperty Name="IS_TEACHER" ColumnName="IS_TEACHER" />
+          <ScalarProperty Name="IS_GRD" ColumnName="IS_GRD" />
+          <ScalarProperty Name="GRD_NO" ColumnName="GRD_NO" />
+          <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+          <ScalarProperty Name="CREATED_DT" ColumnName="CREATED_DT" />
+          <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
+          <ScalarProperty Name="UPDATED_DT" ColumnName="UPDATED_DT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
