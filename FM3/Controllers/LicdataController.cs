@@ -200,7 +200,7 @@ namespace FM3.Controllers
         }
 
         [HttpPost]
-        public ActionResult EmpLicLink(string empid)
+        public JsonResult EmpLicLink(string empid)
         {
             var empList = (from t in fB3DB.VW_H_EMP_DATA
                            where t.EMP_ID == empid && t.EMP_STATUS == "01"
@@ -217,7 +217,82 @@ namespace FM3.Controllers
             Session.Add("empname", empList.EMP_NAME);
             Session.Add("empdept", empList.DIV_DEPT_FULL_NAME);
 
-            return Json(new { rows = empList }, JsonRequestBehavior.AllowGet);
+            var empLicList = (from t in fM3DB.TB_M_PCRT
+                              join licname in fM3DB.TB_M_CODE
+                              on t.LIC_CD equals licname.CODE
+                              where t.EMPID == empid
+                              select new { t.PK_NO, t.EMPID, t.LIC_CD, licname.NAME2, t.LIC_DATE, t.LIC_NO,t.IS_ASSIGN,t.IS_TEACHER,t.IS_GRD, t.RE_LIC_DATE, t.CREATED_BY, t.CREATED_DT,t.UPDATED_BY,t.UPDATED_DT }).ToList();
+            List<LicLinkViewModel> result = new List<LicLinkViewModel>();
+            foreach (var item in empLicList)
+            {
+                result.Add(new LicLinkViewModel
+                {
+                    PK_NO = item.PK_NO,
+                    EMP_ID = item.EMPID,
+                    EMP_NAME = Session["empname"].ToString(),
+                    DIV_DEPT_FULL_NAME = Session["empdept"].ToString(),
+                    LIC_CD = item.LIC_CD,
+                    LIC_DATE = item.LIC_DATE,
+                    IS_ASSIGN = item.IS_ASSIGN ,
+                    IS_TEACHER = item.IS_TEACHER,
+                    IS_GRD = item.IS_GRD,
+                    LIC_NAME = item.NAME2,
+                    RE_LIC_DATE = item.RE_LIC_DATE,
+                    CREATED_BY = item.CREATED_BY,
+                    CREATED_DT = item.CREATED_DT,
+                    UPDATED_BY = item.UPDATED_BY,
+                    UPDATED_DT = item.UPDATED_DT
+                });
+            }
+            ViewBag.SearchResult = result;
+
+            return Json(new { rows = result }, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult AddEmpLicLink(string empid)
+        {
+            //var empList = (from t in fB3DB.VW_H_EMP_DATA
+            //               where t.EMP_ID == empid && t.EMP_STATUS == "01"
+            //               select new { t.EMP_ID, t.EMP_NAME, t.DIV_DEPT_FULL_NAME }).FirstOrDefault();
+            //if (empList == null)
+            //{
+            //    Session.Add("empname", "查無資料");
+            //    Session.Add("empdept", "查無資料");
+            //    VW_H_EMP_DATA emp = new VW_H_EMP_DATA();
+            //    emp.EMP_NAME = "查無資料";
+            //    emp.DIV_DEPT_FULL_NAME = "查無資料";
+            //    return Json(new { rows = emp }, JsonRequestBehavior.AllowGet);
+            //}
+            //Session.Add("empname", empList.EMP_NAME);
+            //Session.Add("empdept", empList.DIV_DEPT_FULL_NAME);
+            //return Json(new { rows = empList }, JsonRequestBehavior.AllowGet);
+            return null;
+        }
+
+        public ActionResult EditEmpLicLink(string empid)
+        {
+            //var empList = (from t in fB3DB.VW_H_EMP_DATA
+            //               where t.EMP_ID == empid && t.EMP_STATUS == "01"
+            //               select new { t.EMP_ID, t.EMP_NAME, t.DIV_DEPT_FULL_NAME }).FirstOrDefault();
+            //if (empList == null)
+            //{
+            //    Session.Add("empname", "查無資料");
+            //    Session.Add("empdept", "查無資料");
+            //    VW_H_EMP_DATA emp = new VW_H_EMP_DATA();
+            //    emp.EMP_NAME = "查無資料";
+            //    emp.DIV_DEPT_FULL_NAME = "查無資料";
+            //    return Json(new { rows = emp }, JsonRequestBehavior.AllowGet);
+            //}
+            //Session.Add("empname", empList.EMP_NAME);
+            //Session.Add("empdept", empList.DIV_DEPT_FULL_NAME);
+            //return Json(new { rows = empList }, JsonRequestBehavior.AllowGet);
+            return null;
+        }
+
+        public ActionResult DelEmpLicLink(string pkno)
+        {
+
+            return null;
         }
 
     }

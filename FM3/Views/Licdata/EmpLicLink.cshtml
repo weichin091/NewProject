@@ -5,81 +5,246 @@
 
 <h2>1.4人員資格維護作業</h2>
 
-    @using (Html.BeginForm("EmpLicLink", "LicData", FormMethod.Post, new { id = "Form1" }))
-    {
-        <div class="row">
-            <div class="col-md-4">
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-default">工號</span>
-                    </div>
-                    <input type="text" id="empid" name="empid" class="form-control" placeholder="請輸入工號" aria-describedby="basic-addon2" required>
-                    <div class="input-group-append">
-                        <button id="searchBtn" class="btn btn-outline-secondary" type="button">查詢</button>
-                    </div>
+@using (Html.BeginForm("EmpLicLink", "LicData", FormMethod.Post, new { id = "Form1" }))
+{
+    <div class="row">
+        <div class="col-md-4">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">工號</span>
                 </div>
-            </div>
-            <div class="col-md-2">
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-default">姓名</span>
-                    </div>
-                    <input type="text" id="empname" name="empname" class="form-control" readonly="readonly" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-default">部門</span>
-                    </div>
-                    <input type="text" id="empdept" name="empdept" class="form-control" readonly="readonly" aria-describedby="basic-addon2">
+                <input type="text" id="empid" name="empid" class="form-control" placeholder="請輸入工號" aria-describedby="basic-addon2" required>
+                <div class="input-group-append">
+                    <button id="searchBtn" class="btn btn-outline-secondary" type="button">查詢</button>
                 </div>
             </div>
         </div>
-    }
-   <script type="text/javascript">
-        $(document).ready(function () {
-            $('#searchBtn').click(function () {
-                debugger;
-                emp = $('#empid').val();
-                empId = { "empid": emp };
-                $.ajax({
-                    url: "@Url.Action("EmpLicLink", "LicData")",
-                    type: 'POST',
-                    contentType: 'application/json',
-                    data: JSON.stringify(empId),
-                    datatype: 'json',
-                    success: function (response) {
-                        debugger;
-                        if (response != null) {
-                            $('#empname').val(response.rows.EMP_NAME);
-                            $('#empdept').val(response.rows.DIV_DEPT_FULL_NAME);
-                        } else {
-                            alert("Something went wrong");
-                            //$('#empname').val("查無資料");
-                            //$('#empdept').val("查無資料");
-                        }
-                    },
-                    failure: function (response) {
-                        alert(response.responseText);
-                    },
-                    error: function (response) {
-                        alert(response.responseText);
-                    }
-
-                }).done(
-                    function (data) {
-                        if ($('#empname').val() != "查無資料") {
-        //                    showgrid(data);
+        <div class="col-md-2">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">姓名</span>
+                </div>
+                    <input type="text" id="empname" name="empname" class="form-control" readonly="readonly" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">部門</span>
+                </div>
+                    <input type="text" id="empdept" name="empdept" class="form-control" readonly="readonly" aria-describedby="basic-addon2">
+            </div>
+        </div>
+    </div>
+}
+<script type="text/javascript">
+            $(document).ready(function () {
+                $('#searchBtn').click(function () {
+                    debugger;
+                    emp = $('#empid').val();
+                    empId = { "empid": emp };
+                    $.ajax({
+                        url: "@Url.Action("EmpLicLink", "LicData")",
+                        type: 'POST',
+                        contentType: 'application/json',
+                        data: JSON.stringify(empId),
+                        datatype: 'json',
+                        success: function (response) {
                             debugger;
+                            if (response != null) {
+                                @*var session_name = '@Request.RequestContext.HttpContext.Session["empname"]';
+                                var session_dept = '@Request.RequestContext.HttpContext.Session["empdept"]';*@
+                                $('#empname').val(response.rows[0].EMP_NAME);
+                                $('#empdept').val(response.rows[0].DIV_DEPT_FULL_NAME);
+                            } else {
+                                $('#empname').val(response.rows.EMP_NAME);
+                                $('#empdept').val(response.rows.DIV_DEPT_FULL_NAME);
+                                alert("Something went wrong");
+                            }
                         }
-                    })
-                .fail(
-                    function (jqXHR, textStatus, errorThrown) {
-                        serrorFunction();
-                    });
+                   }).done(
+                        function (data) {
+                            if ($('#empname').val() != "查無資料") {
+                            debugger;
+                            }
+                        })
+                });
             });
-        });
-   
+</script>
 
-   </script>
+@*<script type="text/javascript">
+            $(document).ready(function () {
+                $('#searchBtn').click(function () {
+                    debugger;
+                    emp = $('#empid').val();
+                    empId = { "empid": emp };
+                    $.ajax({
+                        url: "@Url.Action("EmpLicLink", "LicData")",
+                        type: 'POST',
+                        contentType: 'application/json',
+                        data: JSON.stringify(empId),
+                        datatype: 'json',
+                        success: function (response) {
+                            debugger;
+                            if (response != null) {
+                                //var session_name = '<%=session.getValue("empname")%>';
+                                //var session_dept = '<%=session.getAttribute("empdept")%>';
+                                //$('#empname').val(session_name);
+                                //$('#empdept').val(session_dept);
+                            } else {
+                                alert("Something went wrong");
+                            }
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        }
+
+                    }).done(
+                        function (data) {
+                            if ($('#empname').val() != "查無資料") {
+            //                    showgrid(data);
+                                debugger;
+                            }
+                        })
+                    .fail(
+                        function (jqXHR, textStatus, errorThrown) {
+                            serrorFunction();
+                        });
+                });
+            });
+    </script>*@
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-danger" id="success-alert">
+        <strong>@TempData["Message"]</strong>
+    </div>
+}
+
+
+<div id="SearchResultSection">
+    <br />
+
+    @if (ViewBag.SearchResult != null)
+    {
+        <table class="table table-hover">
+            <thead class="table-light">
+                <tr>
+                    <th>工號</th>
+                    <th>姓名</th>
+                    <th>證照代碼</th>
+                    <th>證照名稱</th>
+                    <th>證照字號</th>
+                    <th>證照取得日期</th>
+                    <th>是否指定</th>
+                    <th>是否為講師</th>
+                    <th>是否結業</th>
+                    <th>結業號碼</th>
+                    <th>最近複訓日期</th>
+                    <th>建立者</th>
+                    <th>建立日</th>
+                    <th>更新者</th>
+                    <th>更新日</th>
+                    <th>功能</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in (List<FM3.Models.LicLinkViewModel>)ViewBag.SearchResult)
+                {
+                    <tr>
+                        <td>@item.EMP_ID</td>
+                        @*<td>@item.NAME1</td>*@
+                        <td>@item.EMP_NAME</td>
+                        <td>@item.LIC_CD</td>
+                        <td>@item.LIC_NO</td>
+                        <td>@item.LIC_DATE</td>
+                        @if (item.IS_ASSIGN == "1")
+                        {
+                            item.IS_ASSIGN = "是";
+                        }
+                        else
+                        {
+                            item.IS_ASSIGN = "否";
+                        }
+                        <td>@item.IS_ASSIGN</td>
+                        @if (item.IS_TEACHER == "1")
+                        {
+                            item.IS_TEACHER = "是";
+                        }
+                        else
+                        {
+                            item.IS_TEACHER = "否";
+                        }
+                        <td>@item.IS_TEACHER</td>
+                        @if (item.IS_GRD == "1")
+                        {
+                            item.IS_GRD = "是";
+                        }
+                        else
+                        {
+                            item.IS_GRD = "否";
+                        }
+                        <td>@item.IS_GRD</td>
+                        <td>@item.GRD_NO</td>
+                        <td>@item.RE_LIC_DATE</td>
+                        <td>@item.CREATED_BY</td>
+                        <td>@item.CREATED_DT</td>
+                        <td>@item.UPDATED_BY</td>
+                        <td>@item.UPDATED_DT</td>
+
+                        <td>
+                            <button type="button" class="btn btn-success" data-toggle="ajax-modal" data-target="#EditLic" data-url="@Url.Action($"EditEmpLicLink/?empid={item.EMP_ID}")">
+                                編輯
+                            </button>
+                            @using (Html.BeginForm("DelEmpLicLink", "Licdata", FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken()
+                                <button type="submit" name="key" value="@item.PK_NO" class="btn  btn-danger" onclick="return confirm('確定刪除?')">刪除</button>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+<div id="ModalArea"></div>
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var ModalArea = $('#ModalArea');
+            $('button[data-toggle="ajax-modal"]').click(function () {
+                var ddlValue = "";
+                var url = $(this).data('url');
+                if ($(this).is('[data-target~="#NewLic"]')) {
+                    ddlValue = $('#ddl').val();
+                    url = url + "/?selectstr=" + ddlValue;
+                }
+                var decodedUrl = decodeURIComponent(url);
+                $.get(decodedUrl).done(function (data) {
+                    ModalArea.html(data);
+                    ModalArea.find('.modal').modal('show');
+                });
+            })
+
+            ModalArea.on('click', '[data-save="modal"]', function (event) {
+                var form = $(this).parents('.modal').find('form');
+                var actionUrl = form.attr('action');
+                var sendData = form.serialize();
+                $.post(actionUrl, sendData).done(function (data) {
+                    ModalArea.find('.modal').modal('hide');
+                    location.reload();
+                })
+            })
+            $(".alert").fadeTo(4000, 500).slideUp(500, function () {
+                $(".alert").slideUp(500);
+            });
+
+
+        })
+
+    </script>
+}
